@@ -21,10 +21,8 @@ int num_sequences = 2, packet_size = 128;
 void error(const char *);
 int checksum(char *);
 void makepacket(uint8_t, uint16_t, char *, char *);
-void gremlin(char *, int, int, int, int, struct sockaddr_in, unsigned int,
-	struct sockaddr_in);
-void PUT_func(char *, int, int, int, int, struct sockaddr_in, unsigned int,
-	struct sockaddr_in);
+void gremlin(char *, int, int, int, int, struct sockaddr_in, unsigned int);
+void PUT_func(char *, int, int, int, int, struct sockaddr_in, unsigned int);
 
 int main(int argc, char *argv[])
 {
@@ -34,13 +32,13 @@ int main(int argc, char *argv[])
 	}
 	int sock, n;
 	unsigned int length;
-	struct sockaddr_in server, from;
+	struct sockaddr_in server;
 	struct hostent *hp;
 	//char buffer[packet_size]; // should the 256 be packet_size? make in PUT func?
 
 	sock = socket(AF_INET, SOCK_DGRAM, 0);
 	if (sock < 0) {
-		error("Error: Could not connect to socekt.");
+		error("Error: Could not connect to socket.");
 	}
 
 	// Set the timeout.
@@ -48,11 +46,12 @@ int main(int argc, char *argv[])
 	tv.tv_sec = TIMEOUT_SEC; 
 	tv.tv_usec = TIMEOUT_USEC; 
 	setsockopt(sockfd, SOL_SOCKET, SO_RCVTIMEO, (char*)&tv,
-		sizeof(struct timeval));
+			sizeof(struct timeval));
 	
 	server.sin_family = AF_INET;
 	hp = gethostbyname(argv[1]);
 	if (hp <= 0) { // should it be "==" or "<="?
+		close(sock);
 		error("Error: Server could not be found.");
 	}
 	bcopy((char *) hp->h_addr, (char *) &server.sin_addr, hp->h_length);
@@ -62,10 +61,11 @@ int main(int argc, char *argv[])
 		case "PUT"
 			if (argc == 7) {
 				PUT_func(argv[4], atoi(argv[5]), atoi(argv[6]), sock, n, server,
-					length, from);
+						length);
 			} else {
 				cout << "Usage: client <server> <port> <function> ";
 				cout << "PUT <filename> <damaged %> <lost %>" << endl;
+				close(sock);
 				exit(1);
 			}
 			break;
@@ -73,26 +73,11 @@ int main(int argc, char *argv[])
 			cout << "Error: Invalid function." << endl;
 			cout << "Function List:" << endl;
 			cout << "\tPUT <filename> <damaged %> <lost %>" << endl;
+			close(socket);
 			exit(1);
 	}
 	return 0;
 }
-
-	/*printf("Please enter the message: ");
-	bzero(buffer, 256);
-	fgets(buffer, 255, stdin);*/
-	n = sendto(sock, buffer, strlen(buffer), 0,
-		(const struct sockaddr *) &server, length);
-	if (n < 0) {
-		error("Sendto");
-	}
-	n = recvfrom(sock, buffer, 256, 0, (struct sockaddr *) &from, &length);
-	if (n < 0) {
-		error("recvfrom");
-	}
-	write(1, "Got an ack: ", 12);
-	write(1, buffer, n);
-	close(sock);
 
 void error(const char *msg) {
 	perror(msg);
@@ -103,32 +88,39 @@ int checksum(char *msg) {
 	return int(std::accumulate(msg, msg + sizeof(msg), BYTE(0)));
 }
 
-void makepacket(unsigned int sequence, char *data, char buffer[packet_size]) {
+void makepacket(unsigned int type unsigned int sequence, char *data,
+		char buffer[packet_size]) {
+	uint8_t tp = type;
+	memcpy(buffer + 0, &tp, 1);
 	uint8_t seq = sequence;
-	memcpy(buffer + 0, &seq, 1);
+	memcpy(buffer + 1, &seq, 1);
 	int checksum = checksum(data);
 	uint16_t chk = checksum; // might need to be uint32_t for larger packet sizes
-	memcpy(buffer + 1, &chk, 2);
-	memcpy(buffer + 3, data, packet_size - 3);
+	memcpy(buffer + 2, &chk, 2);
+	memcpy(buffer + 4, data, packet_size - 4);
 }
 
-void PUT_func(char *buffer, int damaged, int lost, int socket, int newsocket,
-	struct sockaddr_in server, unsigned int length, struct sockaddr_in from) {
+void gremlin(char *buffer, int damaged, int lost, int socket, int newsocket,
+		struct sockaddr_in server, unsigned int length) {
 	
 }
 
 void PUT_func(char *filename, int damaged, int lost, int socket, int newsocket,
-	struct sockaddr_in server, unsigned int length, struct sockaddr_in from) {
+		struct sockaddr_in server, unsigned int length) {
 	char buffer[packet_size];
+	char data[packet_size - 4];
 	
 	// Send initial request
 	bool acknowledged = false;
 	while (!acknowledged) {
 		bzero(buffer, packet_size);
-		buffer = "PUT " + string(filename); // should it be &filename?
+		bzero(data, packet_size - 4);
+		data = "PUT " + string(filename); // should it be &filename?
+		makepacket(3, 0, data, buffer);
 		newsocket = sendto(socket, buffer, strlen(buffer), 0,
-			(const struct sockaddr *) &server, length);
+				(const struct sockaddr *) &server, length);
 		if (newsocket < 0) {
+			close(socket);
 			error("Error: Could not send to socket.");
 		}
 		cout << "Sending PUT request for " << filename << endl;
@@ -138,15 +130,16 @@ void PUT_func(char *filename, int damaged, int lost, int socket, int newsocket,
 				cout << "Error: Timed out on server acknowledgement." << endl;
 				cout << "Another PUT request will be sent." << endl;
 			} else {
+				close(socket);
 				error("Error: Could not receive message from server.");
 			}
 		} else {
-			if (string(buffer) == "ACK") {
+			if (buffer[0] == 0) {
 				cout << "PUT request acknowledged." << endl;
 				acknowledged = true;
 			} else {
 				cout << "PUT request not acknowledged.\nError Message:" << endl;
-				cout << string(buffer) << endl;
+				cout << string(buffer + 4) << endl; // I want to print just the data, is this correct
 				cout << "Another PUT request will be sent." << endl;
 			}
 		}
@@ -156,22 +149,24 @@ void PUT_func(char *filename, int damaged, int lost, int socket, int newsocket,
 	FILE *infile;
 	infile = fopen(string(filename), "rb");
 	if (infile == NULL) {
+		close(socket);
 		error("Error: Could not open file.");
 	}
 	int sequence = 0;
 	bool retransmit = false;
-	char data[packet_size - 3];
 	while(!feof(infile)){
 		if (!retransmit) {
-			bzero(data, packet_size - 3);
+			bzero(data, packet_size - 4);
 			size_t = numread;
-			numread = fread(data, 1, packet_size - 3, infile);
-			if (numread != packet_size - 3 && !feof(infile)) {
+			numread = fread(data, 1, packet_size - 4, infile);
+			if (numread != packet_size - 4 && !feof(infile)) {
+				fclose(infile);
+				close(socket);
 				error("Error: Could not read file.");
 			}
 		}
 		bzero(buffer, packet_size);
-		makepacket(sequence, data, buffer);
-		gremlin(buffer, damaged, lost, socket, newsocket, server, length, from);
+		makepacket(3, sequence, data, buffer);
+		gremlin(buffer, damaged, lost, socket, newsocket, server, length);
 	}
 }
