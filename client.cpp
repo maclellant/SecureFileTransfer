@@ -14,7 +14,7 @@
 #include <numeric>
 
 #define TIMEOUT_SEC 0
-#define TIMEOUT_USEC 3000
+#define TIMEOUT_USEC 10000
 #define SEQUENCE_COUNT 2
 #define PACKET_SIZE 128
 
@@ -108,7 +108,7 @@ int main(int argc, char *argv[])
 
 
 	// Being sending loop
-	PUT_func("TavisFile.txt", 0, 0, sockfd, server);
+	PUT_func(filename, 0, 0, sockfd, server);
 }
 
 void error(const char *msg) {
@@ -206,6 +206,7 @@ void PUT_func(char *filename, int damaged, int lost, int sockfd, struct sockaddr
 			makepacket(TRN, sequence, data, (uint16_t)numread, buffer);
 			//gremlin(buffer, damaged, lost, socket, newsocket, server, length);
 
+			std::cout << "Sending data packet to server: " << sequence << std::endl;
 			if (sendto(sockfd, buffer, PACKET_SIZE, 0,
 				(const struct sockaddr *) &server, slen) == -1) {
 				close(sockfd);
@@ -215,7 +216,7 @@ void PUT_func(char *filename, int damaged, int lost, int sockfd, struct sockaddr
 
 			if (recv(sockfd, buffer, PACKET_SIZE, 0) == -1) {
 				if (errno == EAGAIN || errno == EWOULDBLOCK) {
-					std::cout << "TIMEOUT: PUT request not acknowledged" << std::endl;
+					std::cout << "TIMEOUT: data transfer not acknowledged" << std::endl;
 				} else {
 					close(sockfd);
 					std::cerr << "Error: Could not receive message from server." << std::endl;
@@ -242,6 +243,7 @@ void PUT_func(char *filename, int damaged, int lost, int sockfd, struct sockaddr
 		makepacket(TRN, sequence, data, 0, buffer);
 		//gremlin(buffer, damaged, lost, socket, newsocket, server, length);
 
+		std::cout << "Sending final data packet to server: " << sequence << std::endl;
 		if (sendto(sockfd, buffer, PACKET_SIZE, 0,
 			(const struct sockaddr *) &server, slen) == -1) {
 			close(sockfd);
@@ -251,7 +253,7 @@ void PUT_func(char *filename, int damaged, int lost, int sockfd, struct sockaddr
 
 		if (recv(sockfd, buffer, PACKET_SIZE, 0) == -1) {
 			if (errno == EAGAIN || errno == EWOULDBLOCK) {
-				std::cout << "TIMEOUT: PUT request not acknowledged" << std::endl;
+				std::cout << "TIMEOUT: data transfer not acknowledged" << std::endl;
 			} else {
 				close(sockfd);
 				std::cerr << "Error: Could not receive message from server." << std::endl;

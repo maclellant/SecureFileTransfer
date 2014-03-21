@@ -70,6 +70,11 @@ int main(int argc, char** argv)
     {
 		uint8_t cur_seq = 0;
 		uint8_t exp_seq = 0;
+
+        if (wait_put)
+            std::cout << "Waiting for file control message" << std::endl;
+        else
+            std::cout << "Waiting for data packet: " << exp_seq << std::endl;
 	
         if (recvfrom(sockfd, buffer, PACKET_LEN, 0, (struct sockaddr*)&client_addr, &slen)==-1)
 		{
@@ -90,7 +95,7 @@ int main(int argc, char** argv)
 		
 		
 		
-		switch(packet_type) {
+		switch(*packet_type) {
 			case ACK:
 				printf("Why are you receiving an ACK?");
 			break;
@@ -105,6 +110,7 @@ int main(int argc, char** argv)
 					outfile = fopen(data, "wb");
 					wait_put = false;
 					send_ack = true;
+                    std::cout << "Receiving file from client..." << std::endl;
 				}
 				else {
 					printf("Another transfer already in progress.");
@@ -116,8 +122,8 @@ int main(int argc, char** argv)
 			break;
 			case TRN:
 				if(!wait_put && exp_seq == *seq_num) {
-					if(data_size > 0) {
-						fwrite(data, 1, data_size, outfile);
+					if(*data_size > 0) {
+						fwrite(data, 1, *data_size, outfile);
 					}
 					else {
 						fclose(outfile);
@@ -141,11 +147,11 @@ int main(int argc, char** argv)
         
 		if(send_ack) {
 			printf("Sending ACK to client...\n");
-
-			snprintf(buffer, PACKET_LEN, "Acknowledged");
 			bzero(buffer, 128);
-			packet_type = 0;
-			seq_num = cur_seq;
+
+			*packet_type = ACK;
+			*seq_num = cur_seq;
+            *data_size = 0;
 		
 			if (sendto(sockfd, buffer, PACKET_LEN, 0, (struct sockaddr*) &client_addr, slen) == -1)
 			{
@@ -153,6 +159,7 @@ int main(int argc, char** argv)
 				close(sockfd);
 				exit(EXIT_FAILURE);
 			}
+
 			//Updating the expected sequence number.
 			exp_seq = (++exp_seq) % 2;
 		}
