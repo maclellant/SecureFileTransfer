@@ -9,36 +9,77 @@
 #include <string.h>
 #include <algorithm>
 #include <stdint.h>
-#include <errno.h> // not sure if necessary
+#include <errno.h>
+#include <iostream>
+#include <numeric>
 
 #define TIMEOUT_SEC 0
-#define TIMEOUT_USEC 20000
+#define TIMEOUT_USEC 3000
+#define SEQUENCE_COUNT 2
+#define PACKET_SIZE 128
 
-/* Global Variables */
-int num_sequences = 2, packet_size = 128;
+#define ACK 0
+#define NAK 1
+#define GET 2
+#define PUT 3
+#define DEL 4
+#define TRN 5
 
 /* Prototypes */
 void error(const char *);
-int checksum(char *);
-void makepacket(uint8_t, uint16_t, char *, char *);
+int checksum(char *, size_t);
+void makepacket(uint8_t, uint8_t, char*, uint16_t, char[PACKET_SIZE]);
 void gremlin(char *, int, int, int, int, struct sockaddr_in, unsigned int);
-void PUT_func(char *, int, int, int, int, struct sockaddr_in, unsigned int);
+void PUT_func(char *, int, int, int, struct sockaddr_in);
 
 int main(int argc, char *argv[])
 {
-	if (argc < 4) {
-		cout << "Usage: client <server> <port> <function>" << endl;
-		exit(1);
+	if (argc != 8) {
+		std::cout << "Usage: " << argv[0] << " ";
+		std::cout << "<client-port> <server-IP> <server-port> <func> <filename> ";
+		std::cout << "<corrupt %%> <loss %%>" << std::endl;
+		exit(EXIT_FAILURE);
 	}
-	int sock, n;
-	unsigned int length;
-	struct sockaddr_in server;
-	struct hostent *hp;
-	//char buffer[packet_size]; // should the 256 be packet_size? make in PUT func?
 
-	sock = socket(AF_INET, SOCK_DGRAM, 0);
-	if (sock < 0) {
-		error("Error: Could not connect to socket.");
+	unsigned short client_port = (unsigned short) strtoul(argv[1], NULL, 0);
+	unsigned short server_port = (unsigned short) strtoul(argv[3], NULL, 0);
+	char* type = argv[4];
+	char* filename = argv[5];
+	float corrupt_chance = atof(argv[6]);
+	float loss_chance = atof(argv[7]);
+
+	int sockfd;
+	uint8_t packet_type = 255;
+	struct sockaddr_in server;
+	struct sockaddr_in client;
+	socklen_t slen = sizeof(server);
+	
+	// Parse the given server IP address.
+	if (inet_aton(argv[2], &server.sin_addr) == 0)
+	{
+		std::cerr << "Error: Given IP address not valid: " << argv[2] << std::endl;
+		exit(EXIT_FAILURE);
+	}
+
+	// Parse the function code
+	if (!strcmp(type, "PUT"))
+		packet_type = PUT;
+	else if (!strcmp(type, "GET"))
+		packet_type = GET;
+	else if (!strcmp(type, "DEL"))
+		packet_type = DEL;
+
+	if (packet_type == 255)
+	{
+		std::cerr << "Error: Given function comand not valid: " << type << std::endl;
+		std::cerr << "Please use \"PUT\"" << std::endl;
+		exit(EXIT_FAILURE);
+	}
+
+	//char buffer[packet_size]; // should the 256 be packet_size? make in PUT func?
+	sockfd = socket(AF_INET, SOCK_DGRAM, 0);
+	if (sockfd < 0) {
+		error("Error: Could not create client socket.");
 	}
 
 	// Set the timeout.
@@ -48,56 +89,49 @@ int main(int argc, char *argv[])
 	setsockopt(sockfd, SOL_SOCKET, SO_RCVTIMEO, (char*)&tv,
 			sizeof(struct timeval));
 	
+	// Set all the information on the client address struct
+	client.sin_family = AF_INET;
+	client.sin_port = htons(client_port);
+	client.sin_addr.s_addr = htonl(INADDR_ANY);
+
+	if (bind(sockfd, (struct sockaddr*) &client, sizeof(client)) == -1)
+	{
+		std::cerr << "Error: Could not bind client process to port " << client_port << std::endl;
+		close(sockfd);
+		exit(EXIT_FAILURE);
+	}
+
 	server.sin_family = AF_INET;
-	hp = gethostbyname(argv[1]);
-	if (hp <= 0) { // should it be "==" or "<="?
-		close(sock);
-		error("Error: Server could not be found.");
-	}
-	bcopy((char *) hp->h_addr, (char *) &server.sin_addr, hp->h_length);
-	server.sin_port = htons(atoi(argv[2]));
-	length = sizeof(struct sockaddr_in); // rename length? should be serv_length
-	switch(string(argv[3])) {
-		case "PUT"
-			if (argc == 7) {
-				PUT_func(argv[4], atoi(argv[5]), atoi(argv[6]), sock, n, server,
-						length);
-			} else {
-				cout << "Usage: client <server> <port> <function> ";
-				cout << "PUT <filename> <damaged %> <lost %>" << endl;
-				close(sock);
-				exit(1);
-			}
-			break;
-		default:
-			cout << "Error: Invalid function." << endl;
-			cout << "Function List:" << endl;
-			cout << "\tPUT <filename> <damaged %> <lost %>" << endl;
-			close(socket);
-			exit(1);
-	}
-	return 0;
+	server.sin_port = htons(server_port);
+
+	std::cout << "Attempting to talk wth server at " << argv[2] << ":" << argv[3] << std::endl;
+
+
+	// Being sending loop
+	PUT_func("TavisFile.txt", 0, 0, sockfd, server);
 }
 
 void error(const char *msg) {
-	perror(msg);
-	exit(0);
+	std::cerr << msg << std::endl;
+	exit(EXIT_FAILURE);
 }
 
-int checksum(char *msg) {
-	return int(std::accumulate(msg, msg + sizeof(msg), BYTE(0)));
+int checksum(char *msg, size_t len) {
+	return int(std::accumulate(msg, msg + len, (unsigned char)0));
 }
 
-void makepacket(unsigned int type unsigned int sequence, char *data,
-		char buffer[packet_size]) {
+void makepacket(uint8_t type, uint8_t sequence, char *data, uint16_t data_length,
+		char buffer[PACKET_SIZE]) {
 	uint8_t tp = type;
 	memcpy(buffer + 0, &tp, 1);
 	uint8_t seq = sequence;
 	memcpy(buffer + 1, &seq, 1);
-	int checksum = checksum(data);
-	uint16_t chk = checksum; // might need to be uint32_t for larger packet sizes
+	int chk_sum = checksum(data, (size_t)data_length);
+	uint16_t chk = chk_sum; // might need to be uint32_t for larger packet sizes
 	memcpy(buffer + 2, &chk, 2);
-	memcpy(buffer + 4, data, packet_size - 4);
+	uint16_t len = data_length;
+	memcpy(buffer + 4, &len, 2);
+	memcpy(buffer + 6, data, data_length);
 }
 
 void gremlin(char *buffer, int damaged, int lost, int socket, int newsocket,
@@ -105,68 +139,133 @@ void gremlin(char *buffer, int damaged, int lost, int socket, int newsocket,
 	
 }
 
-void PUT_func(char *filename, int damaged, int lost, int socket, int newsocket,
-		struct sockaddr_in server, unsigned int length) {
-	char buffer[packet_size];
-	char data[packet_size - 4];
+void PUT_func(char *filename, int damaged, int lost, int sockfd, struct sockaddr_in server) {
+	char buffer[PACKET_SIZE];
+	char data[PACKET_SIZE - 6];
+	socklen_t slen = sizeof(server);
+
 	
 	// Send initial request
 	bool acknowledged = false;
 	while (!acknowledged) {
-		bzero(buffer, packet_size);
-		bzero(data, packet_size - 4);
-		data = "PUT " + string(filename); // should it be &filename?
-		makepacket(3, 0, data, buffer);
-		newsocket = sendto(socket, buffer, strlen(buffer), 0,
-				(const struct sockaddr *) &server, length);
-		if (newsocket < 0) {
-			close(socket);
-			error("Error: Could not send to socket.");
+		bzero(buffer, PACKET_SIZE);
+		bzero(data, PACKET_SIZE - 6);
+		snprintf(data, PACKET_SIZE - 6, "%s", filename);
+		makepacket(PUT, 0, data, strlen(filename), buffer);
+
+		std::cout << "Sending PUT request for " << filename << std::endl;
+		if (sendto(sockfd, buffer, PACKET_SIZE, 0,
+				(const struct sockaddr *) &server, slen) == -1) {
+			close(sockfd);
+			std::cerr << "Error sending PUT request" << std::endl;
+			exit(EXIT_FAILURE);
 		}
-		cout << "Sending PUT request for " << filename << endl;
-		newsocket = recv(socket, buffer, packet_size, 0);
-		if (newsocket < 0) {
+
+		if (recv(sockfd, buffer, PACKET_SIZE, 0) == -1) {
 			if (errno == EAGAIN || errno == EWOULDBLOCK) {
-				cout << "Error: Timed out on server acknowledgement." << endl;
-				cout << "Another PUT request will be sent." << endl;
+				std::cout << "TIMEOUT: PUT request not acknowledged" << std::endl;
 			} else {
-				close(socket);
-				error("Error: Could not receive message from server.");
+				close(sockfd);
+				std::cerr << "Error: Could not receive message from server." << std::endl;
+				exit(EXIT_FAILURE);
 			}
 		} else {
-			if (buffer[0] == 0) {
-				cout << "PUT request acknowledged." << endl;
+			if (buffer[0] == ACK) {
+				std::cout << "ACKNOWLEDGED: PUT request accepted" << std::endl;
 				acknowledged = true;
 			} else {
-				cout << "PUT request not acknowledged.\nError Message:" << endl;
-				cout << string(buffer + 4) << endl; // I want to print just the data, is this correct
-				cout << "Another PUT request will be sent." << endl;
+				std::cout << "NOT ACKNOWLEDGED: PUT request not acknowledged" << std::endl;
 			}
 		}
 	}
 	
 	// Open file to read byte by btye
 	FILE *infile;
-	infile = fopen(string(filename), "rb");
+	infile = fopen(filename, "rb");
 	if (infile == NULL) {
-		close(socket);
-		error("Error: Could not open file.");
+		close(sockfd);
+		std::cerr << "Error: Could not open file: " << filename << std::endl;
+		exit(EXIT_FAILURE);
 	}
-	int sequence = 0;
-	bool retransmit = false;
-	while(!feof(infile)){
-		if (!retransmit) {
-			bzero(data, packet_size - 4);
-			size_t = numread;
-			numread = fread(data, 1, packet_size - 4, infile);
-			if (numread != packet_size - 4 && !feof(infile)) {
-				fclose(infile);
-				close(socket);
-				error("Error: Could not read file.");
+
+	uint8_t sequence = 0;
+	size_t numread = 0;
+	while(!feof(infile)){	
+		bzero(data, PACKET_SIZE - 6);
+		numread = fread(data, 1, PACKET_SIZE - 6, infile);
+		if (numread != PACKET_SIZE - 6 && !feof(infile)) {
+			fclose(infile);
+			close(sockfd);
+			std::cerr << "Error: Could not properly read file" << std::endl;
+			exit(EXIT_FAILURE);
+		}
+
+		bool acked = false;
+		while (!acked) {
+			bzero(buffer, PACKET_SIZE);
+			makepacket(TRN, sequence, data, (uint16_t)numread, buffer);
+			//gremlin(buffer, damaged, lost, socket, newsocket, server, length);
+
+			if (sendto(sockfd, buffer, PACKET_SIZE, 0,
+				(const struct sockaddr *) &server, slen) == -1) {
+				close(sockfd);
+				std::cerr << "Error: sending data to server" << std::endl;
+				exit(EXIT_FAILURE);
+			}
+
+			if (recv(sockfd, buffer, PACKET_SIZE, 0) == -1) {
+				if (errno == EAGAIN || errno == EWOULDBLOCK) {
+					std::cout << "TIMEOUT: PUT request not acknowledged" << std::endl;
+				} else {
+					close(sockfd);
+					std::cerr << "Error: Could not receive message from server." << std::endl;
+					exit(EXIT_FAILURE);
+				}
+			} else {
+				if (buffer[0] == ACK) {
+					std::cout << "ACKNOWLEDGED: data packet accepted" << std::endl;
+					acked = true;
+				} else {
+					std::cout << "NOT ACKNOWLEDGED: data packet received but corrupted" << std::endl;
+				}
 			}
 		}
-		bzero(buffer, packet_size);
-		makepacket(3, sequence, data, buffer);
-		gremlin(buffer, damaged, lost, socket, newsocket, server, length);
+
+		sequence = (sequence + 1) % SEQUENCE_COUNT;
 	}
+
+	// Send the final packet to close the file and finish the transfer.
+	bool acked = false;
+	while (!acked) {
+		bzero(buffer, PACKET_SIZE);
+		bzero(data, PACKET_SIZE - 6);
+		makepacket(TRN, sequence, data, 0, buffer);
+		//gremlin(buffer, damaged, lost, socket, newsocket, server, length);
+
+		if (sendto(sockfd, buffer, PACKET_SIZE, 0,
+			(const struct sockaddr *) &server, slen) == -1) {
+			close(sockfd);
+			std::cerr << "Error: sending data to server" << std::endl;
+			exit(EXIT_FAILURE);
+		}
+
+		if (recv(sockfd, buffer, PACKET_SIZE, 0) == -1) {
+			if (errno == EAGAIN || errno == EWOULDBLOCK) {
+				std::cout << "TIMEOUT: PUT request not acknowledged" << std::endl;
+			} else {
+				close(sockfd);
+				std::cerr << "Error: Could not receive message from server." << std::endl;
+				exit(EXIT_FAILURE);
+			}
+		} else {
+			if (buffer[0] == ACK) {
+				std::cout << "ACKNOWLEDGED: data packet accepted" << std::endl;
+				acked = true;
+			} else {
+				std::cout << "NOT ACKNOWLEDGED: data packet received but corrupted" << std::endl;
+			}
+		}
+	}
+
+	std::cout << "FINISHED: File completely sent" << std::endl;
 }
