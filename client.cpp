@@ -154,17 +154,7 @@ void PUT_func(char *filename, int damaged, int lost, int sockfd, struct sockaddr
 		snprintf(data, PACKET_SIZE - 6, "%s", filename);
 		makepacket(PUT, 0, data, strlen(filename), buffer);
 
-		
-		//Getting packet sections
-        uint8_t * packet_type = (uint8_t*) (buffer + 0);
-        uint8_t * seq_num = (uint8_t*) (buffer + 1);
-        uint16_t * checksum = (uint16_t*) (buffer + 2);
-        uint16_t * data_size = (uint16_t*) (buffer + 4);
-        char* data = (char*) (buffer + 6);
-		printf("Making packet: %d, %d, %d, %d\n", *packet_type, *seq_num, *checksum, *data_size);
-
 		std::cout << "Sending PUT request for " << filename << std::endl;
-		std::cout << "PUT request data: " << data << std::endl;
 		if (sendto(sockfd, buffer, PACKET_SIZE, 0,
 				(const struct sockaddr *) &server, slen) == -1) {
 			close(sockfd);

@@ -90,13 +90,9 @@ int main(int argc, char** argv)
         char* data = (char*) (buffer + 6);
         cur_seq = (int) *seq_num;
 
-        char terminated_data[PACKET_SIZE+1];
-        bzero(terminated_data, PACKET_SIZE+1);
-        memcpy(terminated_data, buffer, *data_size);
-        terminated_data[*data_size] = '\0';
-        
-        printf("Received Packet: %d, %d, %d, %d, %s\n", (int)*packet_type, (int)*seq_num, (int)*checksum, (int)*data_size, terminated_data);
-
+        char terminated_data[PACKET_SIZE-6+1];
+        memset(terminated_data,'\0',PACKET_SIZE-6+1);
+        memcpy(terminated_data, data, *data_size);
         
         //std::cout << "Here is a breakpoint" << std::endl;
         
@@ -116,7 +112,6 @@ int main(int argc, char** argv)
                     wait_put = false;
                     send_ack = true;
                     exp_seq = 0;
-                    std::cout << "Receiving file from client..." << std::endl;
                 }
                 else {
                     printf("Another transfer already in progress.");
@@ -128,7 +123,6 @@ int main(int argc, char** argv)
             break;
             case TRN:
                 if(!wait_put && exp_seq == cur_seq) {
-        printf("Breakpoint\n");
                     if(*data_size > 0) {
                         fwrite(data, 1, *data_size, outfile);
                         //Updating the expected sequence number.
@@ -153,7 +147,7 @@ int main(int argc, char** argv)
 
 
 
-		if (data != NULL)
+		if (terminated_data != NULL)
             printf("Received packet from %s:%d\nData: %s\n",
                    inet_ntoa(client_addr.sin_addr), ntohs(client_addr.sin_port), terminated_data);
         else
