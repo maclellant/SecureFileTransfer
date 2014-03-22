@@ -28,7 +28,7 @@
 /* Prototypes */
 void error(const char *);
 int checksum(char *, size_t);
-void makepacket(uint8_t, uint8_t, char*, uint16_t, char[PACKET_SIZE]);
+void makepacket(uint8_t, uint8_t, char*, uint, char[PACKET_SIZE]);
 void gremlin(char *, int, int, int, int, struct sockaddr_in, unsigned int);
 void PUT_func(char *, int, int, int, struct sockaddr_in);
 
@@ -117,19 +117,20 @@ void error(const char *msg) {
 }
 
 int checksum(char *msg, size_t len) {
-	return int(std::accumulate(msg, msg + len, (unsigned char)0));
+	//return int(std::accumulate(msg, msg + len, (unsigned char)0));
+	return 555;
 }
 
-void makepacket(uint8_t type, uint8_t sequence, char *data, uint16_t data_length,
+void makepacket(uint8_t type, uint8_t sequence, char *data, uint data_length,
 		char buffer[PACKET_SIZE]) {
 	uint8_t tp = type;
 	memcpy(buffer + 0, &tp, 1);
 	uint8_t seq = sequence;
 	memcpy(buffer + 1, &seq, 1);
-	int chk_sum = checksum(data, (size_t)data_length);
-	uint16_t chk = chk_sum; // might need to be uint32_t for larger packet sizes
+	int chk_sum = checksum(data, data_length);
+	uint16_t chk = (uint16_t) chk_sum; // might need to be uint32_t for larger packet sizes
 	memcpy(buffer + 2, &chk, 2);
-	uint16_t len = data_length;
+	uint16_t len = (uint16_t) data_length;
 	memcpy(buffer + 4, &len, 2);
 	memcpy(buffer + 6, data, data_length);
 }
@@ -153,7 +154,17 @@ void PUT_func(char *filename, int damaged, int lost, int sockfd, struct sockaddr
 		snprintf(data, PACKET_SIZE - 6, "%s", filename);
 		makepacket(PUT, 0, data, strlen(filename), buffer);
 
+		
+		//Getting packet sections
+        uint8_t * packet_type = (uint8_t*) (buffer + 0);
+        uint8_t * seq_num = (uint8_t*) (buffer + 1);
+        uint16_t * checksum = (uint16_t*) (buffer + 2);
+        uint16_t * data_size = (uint16_t*) (buffer + 4);
+        char* data = (char*) (buffer + 6);
+		printf("Making packet: %d, %d, %d, %d\n", *packet_type, *seq_num, *checksum, *data_size);
+
 		std::cout << "Sending PUT request for " << filename << std::endl;
+		std::cout << "PUT request data: " << data << std::endl;
 		if (sendto(sockfd, buffer, PACKET_SIZE, 0,
 				(const struct sockaddr *) &server, slen) == -1) {
 			close(sockfd);
@@ -207,6 +218,7 @@ void PUT_func(char *filename, int damaged, int lost, int sockfd, struct sockaddr
 			//gremlin(buffer, damaged, lost, socket, newsocket, server, length);
 
 			std::cout << "Sending data packet to server: " << sequence << std::endl;
+			std::cout << "Sending data: " << data << std::endl;
 			if (sendto(sockfd, buffer, PACKET_SIZE, 0,
 				(const struct sockaddr *) &server, slen) == -1) {
 				close(sockfd);
