@@ -143,6 +143,7 @@ void gremlin(char *buffer, int damaged, int lost, int socket, int newsocket,
 void PUT_func(char *filename, int damaged, int lost, int sockfd, struct sockaddr_in server) {
 	char buffer[PACKET_SIZE];
 	char data[PACKET_SIZE - 6];
+	char output[PACKET_SIZE -6 + 1];
 	socklen_t slen = sizeof(server);
 
 	
@@ -154,7 +155,7 @@ void PUT_func(char *filename, int damaged, int lost, int sockfd, struct sockaddr
 		snprintf(data, PACKET_SIZE - 6, "%s", filename);
 		makepacket(PUT, 0, data, strlen(filename), buffer);
 
-		std::cout << "Sending PUT request for " << filename << std::endl;
+		std::cout << "PUT: Sending PUT request for " << filename << std::endl << std::endl;
 		if (sendto(sockfd, buffer, PACKET_SIZE, 0,
 				(const struct sockaddr *) &server, slen) == -1) {
 			close(sockfd);
@@ -164,7 +165,7 @@ void PUT_func(char *filename, int damaged, int lost, int sockfd, struct sockaddr
 
 		if (recv(sockfd, buffer, PACKET_SIZE, 0) == -1) {
 			if (errno == EAGAIN || errno == EWOULDBLOCK) {
-				std::cout << "TIMEOUT: PUT request not acknowledged" << std::endl;
+				std::cout << "TIMEOUT: PUT request not acknowledged" << std::endl << std::endl;
 			} else {
 				close(sockfd);
 				std::cerr << "Error: Could not receive message from server." << std::endl;
@@ -172,10 +173,10 @@ void PUT_func(char *filename, int damaged, int lost, int sockfd, struct sockaddr
 			}
 		} else {
 			if (buffer[0] == ACK) {
-				std::cout << "ACKNOWLEDGED: PUT request accepted" << std::endl;
+				std::cout << "ACKNOWLEDGED: PUT request accepted" << std::endl << std::endl;
 				acknowledged = true;
 			} else {
-				std::cout << "NOT ACKNOWLEDGED: PUT request not acknowledged" << std::endl;
+				std::cout << "NOT ACKNOWLEDGED: PUT request not acknowledged" << std::endl << std::endl;
 			}
 		}
 	}
@@ -205,10 +206,14 @@ void PUT_func(char *filename, int damaged, int lost, int sockfd, struct sockaddr
 		while (!acked) {
 			bzero(buffer, PACKET_SIZE);
 			makepacket(TRN, sequence, data, (uint16_t)numread, buffer);
+
+			memset(output,'\0',PACKET_SIZE-6+1);
+        	memcpy(output, data, 48);
+			std::cout << "SENDING: sequence " << (int)sequence << std::endl;
+			std::cout << "Data: " << output << std::endl << std::endl;
+
 			//gremlin(buffer, damaged, lost, socket, newsocket, server, length);
 
-			std::cout << "Sending data packet to server: " << sequence << std::endl;
-			std::cout << "Sending data: " << data << std::endl;
 			if (sendto(sockfd, buffer, PACKET_SIZE, 0,
 				(const struct sockaddr *) &server, slen) == -1) {
 				close(sockfd);
@@ -218,7 +223,7 @@ void PUT_func(char *filename, int damaged, int lost, int sockfd, struct sockaddr
 
 			if (recv(sockfd, buffer, PACKET_SIZE, 0) == -1) {
 				if (errno == EAGAIN || errno == EWOULDBLOCK) {
-					std::cout << "TIMEOUT: data transfer not acknowledged" << std::endl;
+					std::cout << "TIMEOUT: data transfer not acknowledged" << std::endl << std::endl;
 				} else {
 					close(sockfd);
 					std::cerr << "Error: Could not receive message from server." << std::endl;
@@ -226,10 +231,10 @@ void PUT_func(char *filename, int damaged, int lost, int sockfd, struct sockaddr
 				}
 			} else {
 				if (buffer[0] == ACK) {
-					std::cout << "ACKNOWLEDGED: data packet accepted" << std::endl;
+					std::cout << "ACKNOWLEDGED: sequence " << (int)sequence << ": data packet accepted" << std::endl << std::endl << std::endl;
 					acked = true;
 				} else {
-					std::cout << "NOT ACKNOWLEDGED: data packet received but corrupted" << std::endl;
+					std::cout << "NOT ACKNOWLEDGED: sequence " << (int)sequence << ": data packet corrupted" << std::endl << std::endl;
 				}
 			}
 		}
@@ -243,9 +248,11 @@ void PUT_func(char *filename, int damaged, int lost, int sockfd, struct sockaddr
 		bzero(buffer, PACKET_SIZE);
 		bzero(data, PACKET_SIZE - 6);
 		makepacket(TRN, sequence, data, 0, buffer);
+
+		std::cout << "SENDING: Close file transfer packet" << std::endl << std::endl;
+
 		//gremlin(buffer, damaged, lost, socket, newsocket, server, length);
 
-		std::cout << "Sending final data packet to server: " << sequence << std::endl;
 		if (sendto(sockfd, buffer, PACKET_SIZE, 0,
 			(const struct sockaddr *) &server, slen) == -1) {
 			close(sockfd);
@@ -255,7 +262,7 @@ void PUT_func(char *filename, int damaged, int lost, int sockfd, struct sockaddr
 
 		if (recv(sockfd, buffer, PACKET_SIZE, 0) == -1) {
 			if (errno == EAGAIN || errno == EWOULDBLOCK) {
-				std::cout << "TIMEOUT: data transfer not acknowledged" << std::endl;
+				std::cout << "TIMEOUT: data transfer not acknowledged" << std::endl << std::endl;
 			} else {
 				close(sockfd);
 				std::cerr << "Error: Could not receive message from server." << std::endl;
@@ -263,13 +270,13 @@ void PUT_func(char *filename, int damaged, int lost, int sockfd, struct sockaddr
 			}
 		} else {
 			if (buffer[0] == ACK) {
-				std::cout << "ACKNOWLEDGED: data packet accepted" << std::endl;
+				std::cout << "ACKNOWLEDGED: data packet accepted" << std::endl << std::endl;
 				acked = true;
 			} else {
-				std::cout << "NOT ACKNOWLEDGED: data packet received but corrupted" << std::endl;
+				std::cout << "NOT ACKNOWLEDGED: data packet corrupted" << std::endl << std::endl;
 			}
 		}
 	}
 
-	std::cout << "FINISHED: File completely sent" << std::endl;
+	std::cout << "FINISHED: File completely sent: " << filename << std::endl << std::endl;
 }
