@@ -117,8 +117,7 @@ void error(const char *msg) {
 }
 
 int checksum(char *msg, size_t len) {
-	//return int(std::accumulate(msg, msg + len, (unsigned char)0));
-	return 555;
+	return int(std::accumulate(msg, msg + len, (unsigned char) 0));
 }
 
 void makepacket(uint8_t type, uint8_t sequence, char *data, uint data_length,
@@ -128,15 +127,15 @@ void makepacket(uint8_t type, uint8_t sequence, char *data, uint data_length,
 	uint8_t seq = sequence;
 	memcpy(buffer + 1, &seq, 1);
 	int chk_sum = checksum(data, data_length);
-	uint16_t chk = (uint16_t) chk_sum; // might need to be uint32_t for larger packet sizes
+	uint16_t chk = (uint16_t) chk_sum;
 	memcpy(buffer + 2, &chk, 2);
 	uint16_t len = (uint16_t) data_length;
 	memcpy(buffer + 4, &len, 2);
 	memcpy(buffer + 6, data, data_length);
 }
 
-void gremlin(char *buffer, int damaged, int lost, int socket, int newsocket,
-		struct sockaddr_in server, unsigned int length) {
+void gremlin(char *packet, int buffer_length, int damaged, int lost, int sockfd,
+		struct sockaddr_in server) {
 	
 }
 
