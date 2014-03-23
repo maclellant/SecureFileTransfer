@@ -15,9 +15,12 @@
 #include <string.h>
 #include <stdint.h>
 #include <iostream>
+#include <errno.h>
 
 #define PACKET_SIZE 128
 #define SERVER_PORT 10050
+#define SERVER_TIMEOUT_SEC 10
+#define SERVER_TIMEOUT_USEC 00
 
 #define ACK 0
 #define NAK 1
@@ -48,6 +51,13 @@ int main(int argc, char** argv)
     	exit(EXIT_FAILURE);
     }
 
+    // Set the timeout.
+    struct timeval tv;
+    tv.tv_sec = SERVER_TIMEOUT_SEC; 
+    tv.tv_usec = SERVER_TIMEOUT_USEC; 
+    setsockopt(sockfd, SOL_SOCKET, SO_RCVTIMEO, (char*)&tv,
+            sizeof(struct timeval));
+
     bzero(&server_addr, sizeof(server_addr));
     server_addr.sin_family = AF_INET;
     server_addr.sin_port = htons(SERVER_PORT);
@@ -69,19 +79,25 @@ int main(int argc, char** argv)
     int cur_seq = 0;
     
     while(1)
-    {
-        if (wait_put)
-            std::cout << "Waiting for file control message" << std::endl;
-        else
-            std::cout << "Waiting for data packet: " << exp_seq << std::endl;
-	
-        if (recvfrom(sockfd, buffer, PACKET_SIZE, 0, (struct sockaddr*)&client_addr, &slen)==-1)
+    {	
+        if (recvfrom(sockfd, buffer, PACKET_SIZE, 0, (struct sockaddr*)&client_addr, &slen) == -1)
 		{
-	    	fprintf(stderr, "Error: Could not receive from client\n");
-	    	close(sockfd);
-            exit(EXIT_FAILURE);
+            if (errno == EAGAIN || errno == EWOULDBLOCK) {
+                if (!wait_put) {
+                    std::cout << "TIMEOUT: Cancelling current client transfer" << std::endl << std::endl;
+                    wait_put = true;
+                }
+                continue; /* repeat the while loop */
+            } else {
+    	    	std::cerr << "Error: Could not receive from client" << std::endl;
+                close(sockfd);
+                exit(EXIT_FAILURE);                
+            }
+
         }
-        
+
+        send_ack = false;
+
         //Getting packet sections
         uint8_t * packet_type = (uint8_t*) (buffer + 0);
         uint8_t * seq_num = (uint8_t*) (buffer + 1);
@@ -91,75 +107,82 @@ int main(int argc, char** argv)
         cur_seq = (int) *seq_num;
 
         char terminated_data[PACKET_SIZE-6+1];
+        char output[49];
         memset(terminated_data,'\0',PACKET_SIZE-6+1);
         memcpy(terminated_data, data, *data_size);
-        
-        //std::cout << "Here is a breakpoint" << std::endl;
+        memset(output, '\0', 49);
+        memcpy(output, terminated_data, 48);
         
         switch(*packet_type) {
             case ACK:
-                printf("Why are you receiving an ACK?");
+                std::cout << "ACKNOWLEDGE: Packet discarded" << std::endl << std::endl;
             break;
             case NAK:
-                printf("Why are you receiving a NAK?");
+                std::cout << "NOT ACKNOWLEDGE: Packet discarded" << std::endl << std::endl;
             break;
             case GET:
-                printf("Why are you receiving a GET?");
+                std::cout << "GET: Packet discarded" << std::endl << std::endl;
             break;
             case PUT:
                 if(wait_put) {
+                    std::cout << "PUT: Begin transfer of file \"" << terminated_data << "\"" << std::endl << std::endl;
                     outfile = fopen(terminated_data, "wb");
                     wait_put = false;
                     send_ack = true;
                     exp_seq = 0;
                 }
                 else {
-                    printf("Another transfer already in progress.");
+                    std::cout << "PUT: Connection already in use...request discarded" << std::endl << std::endl;
                     send_ack = false;
                 }
             break;
             case DEL:
-                printf("Why are you receiving a DEL?");
+                std::cout << "DEL: Packet discarded" << std::endl << std::endl;
             break;
             case TRN:
-                if(!wait_put && exp_seq == cur_seq) {
-                    if(*data_size > 0) {
-                        fwrite(data, 1, *data_size, outfile);
-                        //Updating the expected sequence number.
-                        exp_seq = (exp_seq + 1) % 2;
+                if(!wait_put) {
+                    if (exp_seq == cur_seq) {
+                        if(*data_size > 0) {
+                            fwrite(data, 1, *data_size, outfile);
+
+                            std::cout << "RECEIVED: sequence " << (int)cur_seq << std::endl;
+                            std::cout << "Data: " << output << std::endl << std::endl;
+
+                            //Updating the expected sequence number.
+                            exp_seq = (exp_seq + 1) % 2;
+                        }
+                        else {
+                            fclose(outfile);
+                            wait_put = true;
+
+                            std::cout << "RECEIVED: close packet for file transfer: closing transfer" << std::endl << std::endl;
+
+                            exp_seq = 0;
+                        }
+                        send_ack = true;
                     }
                     else {
-                        fclose(outfile);
-                        wait_put = true;
-                        exp_seq = 0;
+                        std::cout << "RECEIVED: sequence " << (int)cur_seq << ": incorrect sequence number" << std::endl << std::endl;
                     }
-                    send_ack = true;
                 }
                 else {
-                    printf("Transfer has not yet been initialized.");
+                    std::cout << "RECEIVED DATA: must first send PUT command" << std::endl << std::endl;
                     send_ack = false;
                 }
             break;
             default:
-                printf("Packet type not supported");
+                std::cout << "UNKNOWN PACKET TYPE: Packet discarded" << std::endl << std::endl;
             break;
         }
 
-
-
-		if (terminated_data != NULL)
-            printf("Received packet from %s:%d\nData: %s\n",
-                   inet_ntoa(client_addr.sin_addr), ntohs(client_addr.sin_port), terminated_data);
-        else
-            printf("Received empty packet from %s:%d\n", inet_ntoa(client_addr.sin_addr), ntohs(client_addr.sin_port));
-        
 		if(send_ack) {
-			printf("Sending ACK to client...\n");
 			bzero(buffer, 128);
 
 			*packet_type = ACK;
 			*seq_num = cur_seq;
             *data_size = 0;
+
+            std::cout << "SENDING ACK: sequence " << cur_seq << std::endl << std::endl << std::endl;
 		
 			if (sendto(sockfd, buffer, PACKET_SIZE, 0, (struct sockaddr*) &client_addr, slen) == -1)
 			{

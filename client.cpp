@@ -15,6 +15,9 @@
 
 #define TIMEOUT_SEC 0
 #define TIMEOUT_USEC 10000
+
+#define TIMEOUT_PACKET_COUNT 15
+
 #define SEQUENCE_COUNT 2
 #define PACKET_SIZE 128
 
@@ -107,8 +110,10 @@ int main(int argc, char *argv[])
 	std::cout << "Attempting to talk wth server at " << argv[2] << ":" << argv[3] << std::endl;
 
 
-	// Being sending loop
+	// Begin sending loop
 	PUT_func(filename, 0, 0, sockfd, server);
+
+	exit(EXIT_SUCCESS);
 }
 
 void error(const char *msg) {
@@ -146,6 +151,7 @@ void PUT_func(char *filename, int damaged, int lost, int sockfd, struct sockaddr
 	char output[PACKET_SIZE -6 + 1];
 	socklen_t slen = sizeof(server);
 
+	int timeout_count = 0;
 	
 	// Send initial request
 	bool acknowledged = false;
@@ -166,12 +172,19 @@ void PUT_func(char *filename, int damaged, int lost, int sockfd, struct sockaddr
 		if (recv(sockfd, buffer, PACKET_SIZE, 0) == -1) {
 			if (errno == EAGAIN || errno == EWOULDBLOCK) {
 				std::cout << "TIMEOUT: PUT request not acknowledged" << std::endl << std::endl;
+				++timeout_count;
+				if (timeout_count > TIMEOUT_PACKET_COUNT) {
+					std::cerr << "TERMINATING TRANSFER: Server not responding" << std::endl;
+					close(sockfd);
+					exit(EXIT_FAILURE);
+				}
 			} else {
 				close(sockfd);
 				std::cerr << "Error: Could not receive message from server." << std::endl;
 				exit(EXIT_FAILURE);
 			}
 		} else {
+			timeout_count = 0;
 			if (buffer[0] == ACK) {
 				std::cout << "ACKNOWLEDGED: PUT request accepted" << std::endl << std::endl;
 				acknowledged = true;
@@ -224,12 +237,19 @@ void PUT_func(char *filename, int damaged, int lost, int sockfd, struct sockaddr
 			if (recv(sockfd, buffer, PACKET_SIZE, 0) == -1) {
 				if (errno == EAGAIN || errno == EWOULDBLOCK) {
 					std::cout << "TIMEOUT: data transfer not acknowledged" << std::endl << std::endl;
+					++timeout_count;
+					if (timeout_count > TIMEOUT_PACKET_COUNT) {
+						std::cerr << "TERMINATING TRANSFER: Server not responding" << std::endl;
+						close(sockfd);
+						exit(EXIT_FAILURE);
+					}
 				} else {
 					close(sockfd);
 					std::cerr << "Error: Could not receive message from server." << std::endl;
 					exit(EXIT_FAILURE);
 				}
 			} else {
+				timeout_count = 0;
 				if (buffer[0] == ACK) {
 					std::cout << "ACKNOWLEDGED: sequence " << (int)sequence << ": data packet accepted" << std::endl << std::endl << std::endl;
 					acked = true;
@@ -263,12 +283,19 @@ void PUT_func(char *filename, int damaged, int lost, int sockfd, struct sockaddr
 		if (recv(sockfd, buffer, PACKET_SIZE, 0) == -1) {
 			if (errno == EAGAIN || errno == EWOULDBLOCK) {
 				std::cout << "TIMEOUT: data transfer not acknowledged" << std::endl << std::endl;
+				++timeout_count;
+				if (timeout_count > TIMEOUT_PACKET_COUNT) {
+					std::cerr << "TERMINATING TRANSFER: Server not responding" << std::endl;
+					close(sockfd);
+					exit(EXIT_FAILURE);
+				}
 			} else {
 				close(sockfd);
 				std::cerr << "Error: Could not receive message from server." << std::endl;
 				exit(EXIT_FAILURE);
 			}
 		} else {
+			timeout_count = 0;
 			if (buffer[0] == ACK) {
 				std::cout << "ACKNOWLEDGED: data packet accepted" << std::endl << std::endl;
 				acked = true;
