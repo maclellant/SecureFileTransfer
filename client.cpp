@@ -165,28 +165,40 @@ bool gremlin(char *buffer, int damaged, int lost) {
         return false;
     }
     if(damage_roll < damaged) {
-        int damaged_packet = rand() % 122 + 6;
         if(num_dam < 70) 
         {
+            int damaged_packet = rand() % 122 + 6;
             buffer[damaged_packet] = ~buffer[damaged_packet];
         }
-        if(num_dam < 20) 
+        else if(num_dam < 90) 
         {
-            int previously_damaged = damaged_packet;
+            int damaged_packet = rand() % 122 + 6;
+            buffer[damaged_packet] = ~buffer[damaged_packet];
+
+            previously_damaged = damaged_packet;
             while(previously_damaged == damaged_packet) {
                 damaged_packet = rand() % 122 + 6;
             }
             buffer[damaged_packet] = ~buffer[damaged_packet];
         }
-        if(num_dam < 10)
+        else
         {
-            int previously_damaged2 = damaged_packet;
+            int damaged_packet = rand() % 122 + 6;
+            buffer[damaged_packet] = ~buffer[damaged_packet];
+
+            previously_damaged = damaged_packet;
+            while(previously_damaged == damaged_packet) {
+                damaged_packet = rand() % 122 + 6;
+            }
+            buffer[damaged_packet] = ~buffer[damaged_packet];
+
+            previously_damaged2 = damaged_packet;
             while(damaged_packet == previously_damaged2 || damaged_packet
                 == previously_damaged) 
             {
                 damaged_packet = rand() % 122 + 6;
-                buffer[damaged_packet] = ~buffer[damaged_packet];
             }
+            buffer[damaged_packet] = ~buffer[damaged_packet];
         }
     }
     return true;
