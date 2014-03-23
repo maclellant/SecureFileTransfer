@@ -117,32 +117,79 @@ int main(int argc, char *argv[])
 }
 
 void error(const char *msg) {
-	std::cerr << msg << std::endl;
-	exit(EXIT_FAILURE);
+    std::cerr << msg << std::endl;
+    exit(EXIT_FAILURE);
 }
 
 int checksum(char *msg, size_t len) {
-	//return int(std::accumulate(msg, msg + len, (unsigned char)0));
-	return 555;
+    //return int(std::accumulate(msg, msg + len, (unsigned char)0));
+    return 555;
 }
 
 void makepacket(uint8_t type, uint8_t sequence, char *data, uint data_length,
-		char buffer[PACKET_SIZE]) {
-	uint8_t tp = type;
-	memcpy(buffer + 0, &tp, 1);
-	uint8_t seq = sequence;
-	memcpy(buffer + 1, &seq, 1);
-	int chk_sum = checksum(data, data_length);
-	uint16_t chk = (uint16_t) chk_sum; // might need to be uint32_t for larger packet sizes
-	memcpy(buffer + 2, &chk, 2);
-	uint16_t len = (uint16_t) data_length;
-	memcpy(buffer + 4, &len, 2);
-	memcpy(buffer + 6, data, data_length);
+        char buffer[PACKET_SIZE]) {
+    uint8_t tp = type;
+    memcpy(buffer + 0, &tp, 1);
+    uint8_t seq = sequence;
+    memcpy(buffer + 1, &seq, 1);
+    int chk_sum = checksum(data, data_length);
+    uint16_t chk = (uint16_t) chk_sum; // might need to be uint32_t for larger packet sizes
+    memcpy(buffer + 2, &chk, 2);
+    uint16_t len = (uint16_t) data_length;
+    memcpy(buffer + 4, &len, 2);
+    memcpy(buffer + 6, data, data_length);
 }
 
-void gremlin(char *buffer, int damaged, int lost, int socket, int newsocket,
-		struct sockaddr_in server, unsigned int length) {
-	
+bool gremlin(char *buffer, int damaged, int lost) {
+    if(damaged < 0) 
+    {
+        damaged = 0;
+    }
+    if(damaged > 100) 
+    {
+        damaged = 100;
+    }
+    if(lost < 0) 
+    {
+        lost = 0;
+    }
+    if(lost > 100) 
+    {
+        lost = 100;
+    }
+    int damage_roll = rand() % 101;
+    int lost_roll = rand() % 101;
+    int num_dam = rand() % 101;
+    if(lost_roll < lost) 
+    {
+        return false;
+    }
+    if(damage_roll < damaged) {
+        int damaged_packet = rand() % 122 + 6;
+        if(num_dam < 70) 
+        {
+            buffer[damaged_packet] = ~buffer[damaged_packet];
+        }
+        if(num_dam < 20) 
+        {
+            int previously_damaged = damaged_packet;
+            while(previously_damaged == damaged_packet) {
+                damaged_packet = rand() % 122 + 6;
+            }
+            buffer[damaged_packet] = ~buffer[damaged_packet];
+        }
+        if(num_dam < 10)
+        {
+            int previously_damaged2 = damaged_packet;
+            while(damaged_packet == previously_damaged2 || damaged_packet
+                == previously_damaged) 
+            {
+                damaged_packet = rand() % 122 + 6;
+                buffer[damaged_packet] = ~buffer[damaged_packet];
+            }
+        }
+    }
+    return true;
 }
 
 void PUT_func(char *filename, int damaged, int lost, int sockfd, struct sockaddr_in server) {
