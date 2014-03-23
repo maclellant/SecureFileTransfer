@@ -15,6 +15,7 @@
 #include <string.h>
 #include <stdint.h>
 #include <iostream>
+#include <numeric>
 
 #define PACKET_SIZE 128
 #define SERVER_PORT 10050
@@ -25,6 +26,9 @@
 #define PUT 3
 #define DEL 4
 #define TRN 5
+
+/* Prototypes */
+int checksum(char *, size_t);
 
 int main(int argc, char** argv)
 {
@@ -85,7 +89,7 @@ int main(int argc, char** argv)
         //Getting packet sections
         uint8_t * packet_type = (uint8_t*) (buffer + 0);
         uint8_t * seq_num = (uint8_t*) (buffer + 1);
-        uint16_t * checksum = (uint16_t*) (buffer + 2);
+        uint16_t * chk = (uint16_t*) (buffer + 2);
         uint16_t * data_size = (uint16_t*) (buffer + 4);
         char* data = (char*) (buffer + 6);
         cur_seq = (int) *seq_num;
@@ -98,13 +102,13 @@ int main(int argc, char** argv)
         
         switch(*packet_type) {
             case ACK:
-                printf("Why are you receiving an ACK?");
+                printf("Why are you receiving an ACK?\n");
             break;
             case NAK:
-                printf("Why are you receiving a NAK?");
+                printf("Why are you receiving a NAK?\n");
             break;
             case GET:
-                printf("Why are you receiving a GET?");
+                printf("Why are you receiving a GET?\n");
             break;
             case PUT:
                 if(wait_put) {
@@ -114,42 +118,59 @@ int main(int argc, char** argv)
                     exp_seq = 0;
                 }
                 else {
-                    printf("Another transfer already in progress.");
+                    printf("Another transfer already in progress.\n");
                     send_ack = false;
                 }
             break;
             case DEL:
-                printf("Why are you receiving a DEL?");
+                printf("Why are you receiving a DEL?\n");
             break;
             case TRN:
-                if(!wait_put && exp_seq == cur_seq) {
-                    if(*data_size > 0) {
-                        fwrite(data, 1, *data_size, outfile);
-                        //Updating the expected sequence number.
-                        exp_seq = (exp_seq + 1) % 2;
+                if(!wait_put) {
+                    if(exp_seq == cur_seq) {
+                        int recv_chk = checksum(data, *data_size);
+                        if (*chk == recv_chk) {
+                            if(*data_size > 0) {
+                            fwrite(data, 1, *data_size, outfile);
+                                //Updating the expected sequence number.
+                                exp_seq = (exp_seq + 1) % 2;
+                            }
+                            else {
+                                fclose(outfile);
+                                wait_put = true;
+                                exp_seq = 0;
+                            }
+	                        send_ack = true;
+                        }
+                        else {
+                            std::cout << "Error: Incorrect checksum value." << std::endl;
+                            std::cout << "Expected: " << *chk << std::endl;
+                            std::cout << "Received: " << recv_chk << std::endl;
+                            send_ack = false;
+                        }
                     }
                     else {
-                        fclose(outfile);
-                        wait_put = true;
-                        exp_seq = 0;
+                        std::cout << "Error: Unexpected sequence number." << std::endl;
+                        std::cout << "Expected: " << exp_seq << std::endl;
+                        std::cout << "Received: " << cur_seq << std::endl;
+                        send_ack = false;
                     }
-                    send_ack = true;
                 }
                 else {
-                    printf("Transfer has not yet been initialized.");
+                    printf("Transfer has not yet been initialized.\n");
                     send_ack = false;
                 }
             break;
             default:
-                printf("Packet type not supported");
+                printf("Packet type not supported.\n");
             break;
         }
 
 
 
 		if (terminated_data != NULL)
-            printf("Received packet from %s:%d\nData: %s\n",
-                   inet_ntoa(client_addr.sin_addr), ntohs(client_addr.sin_port), terminated_data);
+            printf("Received packet from %s:%d\nChecksum: %d\nData: %s\n",
+                   inet_ntoa(client_addr.sin_addr), ntohs(client_addr.sin_port), *chk, terminated_data);
         else
             printf("Received empty packet from %s:%d\n", inet_ntoa(client_addr.sin_addr), ntohs(client_addr.sin_port));
         
@@ -172,4 +193,8 @@ int main(int argc, char** argv)
  
     close(sockfd);
     exit(EXIT_SUCCESS);
+}
+
+int checksum(char *msg, size_t len) {
+	return int(std::accumulate(msg, msg + len, (unsigned char) 0));
 }
