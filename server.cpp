@@ -156,7 +156,7 @@ int main(int argc, char** argv)
                             if(*data_size > 0) {
                                 fwrite(data, 1, *data_size, outfile);
                                 std::cout << "RECEIVED: sequence " << (int)cur_seq << std::endl;
-                                std::cout << "Data: " << output << std::endl << std::endl;
+                                std::cout << "Data: " << std::endl << output << std::endl << std::endl;
                                 //Updating the expected sequence number.
                                 exp_seq = (exp_seq + 1) % 2;
                             }

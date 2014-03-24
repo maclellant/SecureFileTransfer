@@ -163,7 +163,7 @@ bool gremlin(char *buffer, int damaged, int lost) {
     {
         return false;
     }
-    if(damage_roll < damaged) {
+    if(damage_roll <= damaged) {
         if(num_dam <= 70) 
         {
             int damaged_packet = rand() % 122 + 6;
