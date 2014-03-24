@@ -1,0 +1,2881 @@
+Script started on Sun 23 Mar 2014 08:35:27 PM CDT
+[?1034hbash-4.1$ ./client 10051 131.204.14.179 10050 PUT TestFile.txt 20 105[C[C[C[C[C[C[C[C[C[C[C[C[Cls[Kcd .[2Pls./client 10051 131.204.14.179 10050 PUT TestFile.txt 25 100[C[C[C[C[C[C[C[C[C[C[C[C[C[K./server
+Successfully bound server to port 10050 and listening for clients...
+
+PUT: Begin transfer of file "TestFile.txt"
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 0
+Data: 
+Somebody once told me the world is gonna roll me
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
+RECEIVED: sequence 1
+Data: 
+er finger and her thumb
+In the shape of an "L" o
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+d to the rules and I hit the ground running
+Didn
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
+RECEIVED: sequence 1
+Data: 
+ dumb
+
+So much to do so much to see
+So what's wr
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0
+Data: 
+ never shine if you don't glow
+
+[Chorus:]
+Hey no
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+get the show on get paid
+And all that glitters i
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+it gets colder
+You're bundled up now but wait 't
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+e satellite picture
+
+The ice we skate is getting
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+ on fire. How about yours?
+That's the way I like
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+are some change for gas
+I need to get myself awa
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+lf
+And we could all use a little change
+
+Well, t
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+t the ground running
+Didn't make sense not to li
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+ much to see
+So what's wrong with taking the bac
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+t glow.
+
+[Chorus]
+
+And all that glitters is gold
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0
+Data: 
+na roll me
+I ain't the sharpest tool in the shed
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+f an "L" on her forehead
+
+Well, the years start 
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+nning
+Didn't make sense not to live for fun
+Your
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+ what's wrong with taking the back streets?
+You'
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+s:]
+Hey now you're an All Star get your game on,
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+glitters is gold
+Only shooting stars break the m
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0
+Data: 
+ut wait 'til you get older
+But the media men beg
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+is getting pretty thin
+The water's getting warm 
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0
+Data: 
+way I like it and I'll never get bored.
+
+[Chorus
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
+RECEIVED: sequence 1
+Data: 
+myself away from this place
+I said yep what a co
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+e
+
+Well, the years start coming and they don't s
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+ not to live for fun
+Your brain gets smart but y
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+ng the back streets
+You'll never know if you don
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+rs is gold
+Only shootin' stars break the mold
+So
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+n the shed
+She was looking kind of dumb with her
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+ars start coming and they don't stop coming
+Fed 
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+r fun
+Your brain gets smart but your head gets d
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+eets?
+You'll never know if you don't go
+You'll n
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+r game on, go play
+Hey now you're a Rock Star ge
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
+RECEIVED: sequence 1
+Data: 
+reak the mold
+
+It's a cool place and they say it
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+ia men beg to differ
+Judging by the hole in the 
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+ting warm so you might as well swim
+My world's o
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+.
+
+[Chorus 2x]
+
+Somebody once asked could I spar
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+ what a concept
+I could use a little fuel myself
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0
+Data: 
+ey don't stop coming
+Fed to the rules and I hit 
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+mart but your head gets dumb
+
+So much to do so m
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+if you don't go
+You'll never shine if you don't 
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+he mold
+Somebody once told me the world is gonna
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+b with her finger and her thumb
+In the shape of 
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+oming
+Fed to the rules and I hit the ground runn
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+ead gets dumb
+
+So much to do so much to see
+So w
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+o
+You'll never shine if you don't glow
+
+[Chorus:
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+ck Star get the show on get paid
+And all that gl
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+hey say it gets colder
+You're bundled up now but
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+le in the satellite picture
+
+The ice we skate is
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+ world's on fire. How about yours?
+That's the wa
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0
+Data: 
+uld I spare some change for gas
+I need to get my
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+uel myself
+And we could all use a little change
+
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+and I hit the ground running
+Didn't make sense n
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
+RECEIVED: sequence 1
+Data: 
+to do so much to see
+So what's wrong with taking
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+you don't glow.
+
+[Chorus]
+
+And all that glitters
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
+RECEIVED: sequence 1
+Data: 
+d is gonna roll me
+I ain't the sharpest tool in 
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+ shape of an "L" on her forehead
+
+Well, the year
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
+RECEIVED: sequence 1
+Data: 
+round running
+Didn't make sense not to live for 
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+o see
+So what's wrong with taking the back stree
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+
+
+[Chorus:]
+Hey now you're an All Star get your 
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+ll that glitters is gold
+Only shooting stars bre
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+up now but wait 'til you get older
+But the media
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+e skate is getting pretty thin
+The water's getti
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+t's the way I like it and I'll never get bored.
+
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+ to get myself away from this place
+I said yep w
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+le change
+
+Well, the years start coming and they
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+ke sense not to live for fun
+Your brain gets sma
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+ith taking the back streets
+You'll never know if
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+t glitters is gold
+Only shootin' stars break the
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
+RECEIVED: sequence 1
+Data: 
+t tool in the shed
+She was looking kind of dumb 
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0
+Data: 
+, the years start coming and they don't stop com
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+ live for fun
+Your brain gets smart but your hea
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0
+Data: 
+back streets?
+You'll never know if you don't go
+
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+ get your game on, go play
+Hey now you're a Rock
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+ stars break the mold
+
+It's a cool place and the
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+ the media men beg to differ
+Judging by the hole
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+er's getting warm so you might as well swim
+My w
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+et bored.
+
+[Chorus 2x]
+
+Somebody once asked coul
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+said yep what a concept
+I could use a little fue
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
+RECEIVED: sequence 1
+Data: 
+g and they don't stop coming
+Fed to the rules an
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+n gets smart but your head gets dumb
+
+So much to
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+er know if you don't go
+You'll never shine if yo
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0
+Data: 
+ break the mold
+Somebody once told me the world 
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+d of dumb with her finger and her thumb
+In the s
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+t stop coming
+Fed to the rules and I hit the gro
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+t your head gets dumb
+
+So much to do so much to 
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0
+Data: 
+ don't go
+You'll never shine if you don't glow
+
+
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+'re a Rock Star get the show on get paid
+And all
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+ce and they say it gets colder
+You're bundled up
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+y the hole in the satellite picture
+
+The ice we 
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+ swim
+My world's on fire. How about yours?
+That'
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+asked could I spare some change for gas
+I need t
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+little fuel myself
+And we could all use a little
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
+RECEIVED: sequence 1
+Data: 
+e rules and I hit the ground running
+Didn't make
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+So much to do so much to see
+So what's wrong wit
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+hine if you don't glow.
+
+[Chorus]
+
+And all that 
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+the world is gonna roll me
+I ain't the sharpest 
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+b
+In the shape of an "L" on her forehead
+
+Well, 
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+it the ground running
+Didn't make sense not to l
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+o much to see
+So what's wrong with taking the ba
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+n't glow
+
+[Chorus:]
+Hey now you're an All Star g
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
+RECEIVED: sequence 1
+Data: 
+id
+And all that glitters is gold
+Only shooting s
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0
+Data: 
+bundled up now but wait 'til you get older
+But t
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+he ice we skate is getting pretty thin
+The water
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+urs?
+That's the way I like it and I'll never get
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+s
+I need to get myself away from this place
+I sa
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+e a little change
+
+Well, the years start coming 
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+idn't make sense not to live for fun
+Your brain 
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+ wrong with taking the back streets
+You'll never
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+ all that glitters is gold
+Only shootin' stars b
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+ sharpest tool in the shed
+She was looking kind 
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+ad
+
+Well, the years start coming and they don't 
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+e not to live for fun
+Your brain gets smart but 
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
+RECEIVED: sequence 1
+Data: 
+ing the back streets?
+You'll never know if you d
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+All Star get your game on, go play
+Hey now you'r
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+shooting stars break the mold
+
+It's a cool place
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0
+Data: 
+lder
+But the media men beg to differ
+Judging by 
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+
+The water's getting warm so you might as well s
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0
+Data: 
+ never get bored.
+
+[Chorus 2x]
+
+Somebody once as
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+place
+I said yep what a concept
+I could use a li
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+rt coming and they don't stop coming
+Fed to the 
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+our brain gets smart but your head gets dumb
+
+So
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+u'll never know if you don't go
+You'll never shi
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+n' stars break the mold
+Somebody once told me th
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0
+Data: 
+king kind of dumb with her finger and her thumb
+
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+hey don't stop coming
+Fed to the rules and I hit
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+smart but your head gets dumb
+
+So much to do so 
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+w if you don't go
+You'll never shine if you don'
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+ now you're a Rock Star get the show on get paid
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+cool place and they say it gets colder
+You're bu
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+udging by the hole in the satellite picture
+
+The
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+ as well swim
+My world's on fire. How about your
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+dy once asked could I spare some change for gas
+
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+d use a little fuel myself
+And we could all use 
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0
+Data: 
+ed to the rules and I hit the ground running
+Did
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+s dumb
+
+So much to do so much to see
+So what's w
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+ never shine if you don't glow.
+
+[Chorus]
+
+And a
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+told me the world is gonna roll me
+I ain't the s
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+her thumb
+In the shape of an "L" on her forehead
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+ and I hit the ground running
+Didn't make sense 
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+ to do so much to see
+So what's wrong with takin
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+f you don't glow
+
+[Chorus:]
+Hey now you're an Al
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+n get paid
+And all that glitters is gold
+Only sh
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+
+You're bundled up now but wait 'til you get old
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+cture
+
+The ice we skate is getting pretty thin
+T
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+about yours?
+That's the way I like it and I'll n
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+e for gas
+I need to get myself away from this pl
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
+RECEIVED: sequence 1
+Data: 
+d all use a little change
+
+Well, the years start
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+unning
+Didn't make sense not to live for fun
+You
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+o what's wrong with taking the back streets
+You'
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+us]
+
+And all that glitters is gold
+Only shootin'
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+in't the sharpest tool in the shed
+She was looki
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+r forehead
+
+Well, the years start coming and the
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+ake sense not to live for fun
+Your brain gets sm
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0
+Data: 
+with taking the back streets?
+You'll never know 
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
+RECEIVED: sequence 1
+Data: 
+u're an All Star get your game on, go play
+Hey n
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+ld
+Only shooting stars break the mold
+
+It's a co
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+ou get older
+But the media men beg to differ
+Jud
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+tty thin
+The water's getting warm so you might a
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+and I'll never get bored.
+
+[Chorus 2x]
+
+Somebody
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0
+Data: 
+om this place
+I said yep what a concept
+I could 
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+ears start coming and they don't stop coming
+Fed
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0
+Data: 
+or fun
+Your brain gets smart but your head gets 
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+reets
+You'll never know if you don't go
+You'll n
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+y shootin' stars break the mold
+Somebody once to
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
+RECEIVED: sequence 1
+Data: 
+ was looking kind of dumb with her finger and he
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+ng and they don't stop coming
+Fed to the rules a
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+in gets smart but your head gets dumb
+
+So much t
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+ever know if you don't go
+You'll never shine if 
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+play
+Hey now you're a Rock Star get the show on 
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+
+It's a cool place and they say it gets colder
+Y
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+differ
+Judging by the hole in the satellite pict
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+ou might as well swim
+My world's on fire. How ab
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+
+
+Somebody once asked could I spare some change 
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+t
+I could use a little fuel myself
+And we could 
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+coming
+Fed to the rules and I hit the ground run
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0
+Data: 
+head gets dumb
+
+So much to do so much to see
+So 
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
+RECEIVED: sequence 1
+Data: 
+o
+You'll never shine if you don't glow.
+
+[Chorus
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+dy once told me the world is gonna roll me
+I ain
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+ger and her thumb
+In the shape of an "L" on her 
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+he rules and I hit the ground running
+Didn't mak
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+
+So much to do so much to see
+So what's wrong wi
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0
+Data: 
+ shine if you don't glow
+
+[Chorus:]
+Hey now you'
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
+RECEIVED: sequence 1
+Data: 
+e show on get paid
+And all that glitters is gold
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+s colder
+You're bundled up now but wait 'til you
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+llite picture
+
+The ice we skate is getting prett
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+re. How about yours?
+That's the way I like it an
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+me change for gas
+I need to get myself away from
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0
+Data: 
+ we could all use a little change
+
+Well, the yea
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
+RECEIVED: sequence 1
+Data: 
+ground running
+Didn't make sense not to live for
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+to see
+So what's wrong with taking the back stre
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
+RECEIVED: sequence 1
+Data: 
+.
+
+[Chorus]
+
+And all that glitters is gold
+Only 
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+l me
+I ain't the sharpest tool in the shed
+She w
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+L" on her forehead
+
+Well, the years start coming
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+Didn't make sense not to live for fun
+Your brain
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+s wrong with taking the back streets?
+You'll nev
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+y now you're an All Star get your game on, go pl
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+rs is gold
+Only shooting stars break the mold
+
+I
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+t 'til you get older
+But the media men beg to di
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+ting pretty thin
+The water's getting warm so you
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+like it and I'll never get bored.
+
+[Chorus 2x]
+
+
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+ away from this place
+I said yep what a concept
+
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0
+Data: 
+l, the years start coming and they don't stop co
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+o live for fun
+Your brain gets smart but your he
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0
+Data: 
+ back streets
+You'll never know if you don't go
+
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+gold
+Only shootin' stars break the mold
+Somebody
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+shed
+She was looking kind of dumb with her finge
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+art coming and they don't stop coming
+Fed to the
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0
+Data: 
+Your brain gets smart but your head gets dumb
+
+S
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+You'll never know if you don't go
+You'll never s
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+ on, go play
+Hey now you're a Rock Star get the 
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
+RECEIVED: sequence 1
+Data: 
+he mold
+
+It's a cool place and they say it gets 
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+ beg to differ
+Judging by the hole in the satell
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+arm so you might as well swim
+My world's on fire
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+orus 2x]
+
+Somebody once asked could I spare some
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+a concept
+I could use a little fuel myself
+And w
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+'t stop coming
+Fed to the rules and I hit the gr
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+ut your head gets dumb
+
+So much to do so much to
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+ don't go
+You'll never shine if you don't glow.
+
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+d
+Somebody once told me the world is gonna roll 
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0
+Data: 
+ her finger and her thumb
+In the shape of an "L"
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+Fed to the rules and I hit the ground running
+Di
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+ts dumb
+
+So much to do so much to see
+So what's 
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
+RECEIVED: sequence 1
+Data: 
+ll never shine if you don't glow
+
+[Chorus:]
+Hey 
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0
+Data: 
+r get the show on get paid
+And all that glitters
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+y it gets colder
+You're bundled up now but wait 
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+the satellite picture
+
+The ice we skate is getti
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+'s on fire. How about yours?
+That's the way I li
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0
+Data: 
+spare some change for gas
+I need to get myself a
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+self
+And we could all use a little change
+
+Well,
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+hit the ground running
+Didn't make sense not to 
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+so much to see
+So what's wrong with taking the b
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+n't glow.
+
+[Chorus]
+
+And all that glitters is go
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+onna roll me
+I ain't the sharpest tool in the sh
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0
+Data: 
+ of an "L" on her forehead
+
+Well, the years star
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+running
+Didn't make sense not to live for fun
+Yo
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+So what's wrong with taking the back streets?
+Yo
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+rus:]
+Hey now you're an All Star get your game o
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0
+Data: 
+t glitters is gold
+Only shooting stars break the
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+ but wait 'til you get older
+But the media men b
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+e is getting pretty thin
+The water's getting war
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+e way I like it and I'll never get bored.
+
+[Chor
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0
+Data: 
+t myself away from this place
+I said yep what a 
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+nge
+
+Well, the years start coming and they don't
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0
+Data: 
+se not to live for fun
+Your brain gets smart but
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
+RECEIVED: sequence 1
+Data: 
+king the back streets
+You'll never know if you d
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+ters is gold
+Only shootin' stars break the mold
+
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
+RECEIVED: sequence 1
+Data: 
+ in the shed
+She was looking kind of dumb with h
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0
+Data: 
+years start coming and they don't stop coming
+Fe
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+for fun
+Your brain gets smart but your head gets
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+treets?
+You'll never know if you don't go
+You'll
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+our game on, go play
+Hey now you're a Rock Star 
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+ break the mold
+
+It's a cool place and they say 
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+edia men beg to differ
+Judging by the hole in th
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+etting warm so you might as well swim
+My world's
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+ed.
+
+[Chorus 2x]
+
+Somebody once asked could I sp
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+ep what a concept
+I could use a little fuel myse
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+they don't stop coming
+Fed to the rules and I hi
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+ smart but your head gets dumb
+
+So much to do so
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
+RECEIVED: sequence 1
+Data: 
+w if you don't go
+You'll never shine if you don'
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+ the mold
+Somebody once told me the world is gon
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
+RECEIVED: sequence 1
+Data: 
+umb with her finger and her thumb
+In the shape o
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+ coming
+Fed to the rules and I hit the ground ru
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+ head gets dumb
+
+So much to do so much to see
+So
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+ go
+You'll never shine if you don't glow
+
+[Choru
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+Rock Star get the show on get paid
+And all that 
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+ they say it gets colder
+You're bundled up now b
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+hole in the satellite picture
+
+The ice we skate 
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+My world's on fire. How about yours?
+That's the 
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
+RECEIVED: sequence 1
+Data: 
+could I spare some change for gas
+I need to get 
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+ fuel myself
+And we could all use a little chang
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+s and I hit the ground running
+Didn't make sense
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+h to do so much to see
+So what's wrong with taki
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+f you don't glow.
+
+[Chorus]
+
+And all that glitte
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0
+Data: 
+rld is gonna roll me
+I ain't the sharpest tool i
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+he shape of an "L" on her forehead
+
+Well, the ye
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+ ground running
+Didn't make sense not to live fo
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
+RECEIVED: sequence 1
+Data: 
+ to see
+So what's wrong with taking the back str
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0
+Data: 
+ow
+
+[Chorus:]
+Hey now you're an All Star get you
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+ all that glitters is gold
+Only shooting stars b
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+d up now but wait 'til you get older
+But the med
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+ we skate is getting pretty thin
+The water's get
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+hat's the way I like it and I'll never get bored
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+ed to get myself away from this place
+I said yep
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0
+Data: 
+ttle change
+
+Well, the years start coming and th
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1
+Data: 
+make sense not to live for fun
+Your brain gets s
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0
+Data: 
+ with taking the back streets
+You'll never know 
+
+SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
+RECEIVED: sequence 1
+Data: 
+hat glitters is gold
+Only shootin' stars break t
+
+SENDING ACK: sequence 1
+
+
+RECEIVED: close packet for file transfer: closing transfer
+
+SENDING ACK: sequence 0
+
+
+Waiting for client connection......
+
+^C
+bash-4.1$ exit
+
+Script done on Sun 23 Mar 2014 08:36:03 PM CDT
