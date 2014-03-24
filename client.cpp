@@ -32,7 +32,7 @@
 void error(const char *);
 int checksum(char *, size_t);
 void makepacket(uint8_t, uint8_t, char*, uint, char[PACKET_SIZE]);
-void gremlin(char *, int, int, int, int, struct sockaddr_in, unsigned int);
+bool gremlin(char *, int, int);
 void PUT_func(char *, int, int, int, struct sockaddr_in);
 
 int main(int argc, char *argv[])
@@ -111,7 +111,7 @@ int main(int argc, char *argv[])
 
 
 	// Begin sending loop
-	PUT_func(filename, 0, 0, sockfd, server);
+	PUT_func(filename, corrupt_chance, loss_chance, sockfd, server);
 
 	exit(EXIT_SUCCESS);
 }
@@ -122,8 +122,7 @@ void error(const char *msg) {
 }
 
 int checksum(char *msg, size_t len) {
-    //return int(std::accumulate(msg, msg + len, (unsigned char)0));
-    return 555;
+    return int(std::accumulate(msg, msg + len, (unsigned char)0));
 }
 
 void makepacket(uint8_t type, uint8_t sequence, char *data, uint data_length,
@@ -160,22 +159,22 @@ bool gremlin(char *buffer, int damaged, int lost) {
     int damage_roll = rand() % 101;
     int lost_roll = rand() % 101;
     int num_dam = rand() % 101;
-    if(lost_roll < lost) 
+    if(lost_roll <= lost) 
     {
         return false;
     }
     if(damage_roll < damaged) {
-        if(num_dam < 70) 
+        if(num_dam <= 70) 
         {
             int damaged_packet = rand() % 122 + 6;
             buffer[damaged_packet] = ~buffer[damaged_packet];
         }
-        else if(num_dam < 90) 
+        else if(num_dam <= 90) 
         {
             int damaged_packet = rand() % 122 + 6;
             buffer[damaged_packet] = ~buffer[damaged_packet];
 
-            previously_damaged = damaged_packet;
+            int previously_damaged = damaged_packet;
             while(previously_damaged == damaged_packet) {
                 damaged_packet = rand() % 122 + 6;
             }
@@ -186,13 +185,13 @@ bool gremlin(char *buffer, int damaged, int lost) {
             int damaged_packet = rand() % 122 + 6;
             buffer[damaged_packet] = ~buffer[damaged_packet];
 
-            previously_damaged = damaged_packet;
+            int previously_damaged = damaged_packet;
             while(previously_damaged == damaged_packet) {
                 damaged_packet = rand() % 122 + 6;
             }
             buffer[damaged_packet] = ~buffer[damaged_packet];
 
-            previously_damaged2 = damaged_packet;
+            int previously_damaged2 = damaged_packet;
             while(damaged_packet == previously_damaged2 || damaged_packet
                 == previously_damaged) 
             {
@@ -205,7 +204,7 @@ bool gremlin(char *buffer, int damaged, int lost) {
 }
 
 void PUT_func(char *filename, int damaged, int lost, int sockfd, struct sockaddr_in server) {
-	char buffer[PACKET_SIZE];
+    char buffer[PACKET_SIZE];
 	char data[PACKET_SIZE - 6];
 	char output[PACKET_SIZE -6 + 1];
 	socklen_t slen = sizeof(server);
@@ -284,14 +283,14 @@ void PUT_func(char *filename, int damaged, int lost, int sockfd, struct sockaddr
 			std::cout << "SENDING: sequence " << (int)sequence << std::endl;
 			std::cout << "Data: " << output << std::endl << std::endl;
 
-			//gremlin(buffer, damaged, lost, socket, newsocket, server, length);
-
-			if (sendto(sockfd, buffer, PACKET_SIZE, 0,
-				(const struct sockaddr *) &server, slen) == -1) {
-				close(sockfd);
-				std::cerr << "Error: sending data to server" << std::endl;
-				exit(EXIT_FAILURE);
-			}
+			if (gremlin(buffer, damaged, lost)) {
+			    if (sendto(sockfd, buffer, PACKET_SIZE, 0,
+				    (const struct sockaddr *) &server, slen) == -1) {
+				    close(sockfd);
+				    std::cerr << "Error: sending data to server" << std::endl;
+				    exit(EXIT_FAILURE);
+			    }
+            }
 
 			if (recv(sockfd, buffer, PACKET_SIZE, 0) == -1) {
 				if (errno == EAGAIN || errno == EWOULDBLOCK) {
@@ -330,14 +329,14 @@ void PUT_func(char *filename, int damaged, int lost, int sockfd, struct sockaddr
 
 		std::cout << "SENDING: Close file transfer packet" << std::endl << std::endl;
 
-		//gremlin(buffer, damaged, lost, socket, newsocket, server, length);
-
-		if (sendto(sockfd, buffer, PACKET_SIZE, 0,
-			(const struct sockaddr *) &server, slen) == -1) {
-			close(sockfd);
-			std::cerr << "Error: sending data to server" << std::endl;
-			exit(EXIT_FAILURE);
-		}
+		if (gremlin(buffer, damaged, lost)) {
+		    if (sendto(sockfd, buffer, PACKET_SIZE, 0,
+			    (const struct sockaddr *) &server, slen) == -1) {
+			    close(sockfd);
+			    std::cerr << "Error: sending data to server" << std::endl;
+			    exit(EXIT_FAILURE);
+		    }
+        }
 
 		if (recv(sockfd, buffer, PACKET_SIZE, 0) == -1) {
 			if (errno == EAGAIN || errno == EWOULDBLOCK) {
