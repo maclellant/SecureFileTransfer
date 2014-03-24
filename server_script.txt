@@ -1,5 +1,5 @@
-Script started on Sun 23 Mar 2014 08:35:27 PM CDT
-[?1034hbash-4.1$ ./client 10051 131.204.14.179 10050 PUT TestFile.txt 20 105[C[C[C[C[C[C[C[C[C[C[C[C[Cls[Kcd .[2Pls./client 10051 131.204.14.179 10050 PUT TestFile.txt 25 100[C[C[C[C[C[C[C[C[C[C[C[C[C[K./server
+Script started on Sun 23 Mar 2014 08:45:36 PM CDT
+[?1034hbash-4.1$ ./server
 Successfully bound server to port 10050 and listening for clients...
 
 PUT: Begin transfer of file "TestFile.txt"
@@ -158,6 +158,11 @@ RECEIVED: sequence 0: damaged packet
 SENDING NAK: sequence 0
 
 
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
 RECEIVED: sequence 0
 Data: 
 na roll me
@@ -206,11 +211,6 @@ glitters is gold
 Only shooting stars break the m
 
 SENDING ACK: sequence 1
-
-
-RECEIVED: sequence 0: damaged packet
-
-SENDING NAK: sequence 0
 
 
 RECEIVED: sequence 0
@@ -319,6 +319,11 @@ Your brain gets smart but your head gets d
 SENDING ACK: sequence 0
 
 
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
 RECEIVED: sequence 1
 Data: 
 eets?
@@ -334,11 +339,6 @@ r game on, go play
 Hey now you're a Rock Star ge
 
 SENDING ACK: sequence 0
-
-
-RECEIVED: sequence 1: damaged packet
-
-SENDING NAK: sequence 1
 
 
 RECEIVED: sequence 1
@@ -366,6 +366,11 @@ My world's o
 SENDING ACK: sequence 1
 
 
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
 RECEIVED: sequence 0
 Data: 
 .
@@ -385,11 +390,6 @@ I could use a little fuel myself
 SENDING ACK: sequence 1
 
 
-RECEIVED: sequence 0: damaged packet
-
-SENDING NAK: sequence 0
-
-
 RECEIVED: sequence 0
 Data: 
 ey don't stop coming
@@ -405,6 +405,11 @@ mart but your head gets dumb
 So much to do so m
 
 SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
 
 
 RECEIVED: sequence 0
@@ -447,6 +452,11 @@ So much to do so much to see
 So w
 
 SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
 
 
 RECEIVED: sequence 1
@@ -492,11 +502,6 @@ That's the wa
 SENDING ACK: sequence 1
 
 
-RECEIVED: sequence 0: damaged packet
-
-SENDING NAK: sequence 0
-
-
 RECEIVED: sequence 0
 Data: 
 uld I spare some change for gas
@@ -520,6 +525,16 @@ and I hit the ground running
 Didn't make sense n
 
 SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
 
 
 RECEIVED: sequence 1: damaged packet
@@ -551,16 +566,6 @@ RECEIVED: sequence 1: damaged packet
 SENDING NAK: sequence 1
 
 
-RECEIVED: sequence 1: damaged packet
-
-SENDING NAK: sequence 1
-
-
-RECEIVED: sequence 1: damaged packet
-
-SENDING NAK: sequence 1
-
-
 RECEIVED: sequence 1
 Data: 
 d is gonna roll me
@@ -576,11 +581,6 @@ Data:
 Well, the year
 
 SENDING ACK: sequence 0
-
-
-RECEIVED: sequence 1: damaged packet
-
-SENDING NAK: sequence 1
 
 
 RECEIVED: sequence 1
@@ -666,12 +666,22 @@ Your brain gets sma
 SENDING ACK: sequence 0
 
 
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
 RECEIVED: sequence 1
 Data: 
 ith taking the back streets
 You'll never know if
 
 SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
 
 
 RECEIVED: sequence 0
@@ -695,11 +705,6 @@ She was looking kind of dumb
 SENDING ACK: sequence 1
 
 
-RECEIVED: sequence 0: damaged packet
-
-SENDING NAK: sequence 0
-
-
 RECEIVED: sequence 0
 Data: 
 , the years start coming and they don't stop com
@@ -715,11 +720,6 @@ Your brain gets smart but your hea
 SENDING ACK: sequence 1
 
 
-RECEIVED: sequence 0: damaged packet
-
-SENDING NAK: sequence 0
-
-
 RECEIVED: sequence 0
 Data: 
 back streets?
@@ -727,6 +727,11 @@ You'll never know if you don't go
 
 
 SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
 
 
 RECEIVED: sequence 1
@@ -744,6 +749,21 @@ Data:
 It's a cool place and the
 
 SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
 
 
 RECEIVED: sequence 1
@@ -773,22 +793,22 @@ Somebody once asked coul
 SENDING ACK: sequence 1
 
 
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
 RECEIVED: sequence 0
 Data: 
 said yep what a concept
 I could use a little fue
 
 SENDING ACK: sequence 0
-
-
-RECEIVED: sequence 1: damaged packet
-
-SENDING NAK: sequence 1
-
-
-RECEIVED: sequence 1: damaged packet
-
-SENDING NAK: sequence 1
 
 
 RECEIVED: sequence 1: damaged packet
@@ -821,16 +841,6 @@ You'll never shine if yo
 SENDING ACK: sequence 1
 
 
-RECEIVED: sequence 0: damaged packet
-
-SENDING NAK: sequence 0
-
-
-RECEIVED: sequence 0: damaged packet
-
-SENDING NAK: sequence 0
-
-
 RECEIVED: sequence 0
 Data: 
  break the mold
@@ -839,12 +849,22 @@ Somebody once told me the world
 SENDING ACK: sequence 0
 
 
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
 RECEIVED: sequence 1
 Data: 
 d of dumb with her finger and her thumb
 In the s
 
 SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
 
 
 RECEIVED: sequence 0
@@ -862,16 +882,6 @@ t your head gets dumb
 So much to do so much to 
 
 SENDING ACK: sequence 1
-
-
-RECEIVED: sequence 0: damaged packet
-
-SENDING NAK: sequence 0
-
-
-RECEIVED: sequence 0: damaged packet
-
-SENDING NAK: sequence 0
 
 
 RECEIVED: sequence 0
@@ -898,6 +908,11 @@ ce and they say it gets colder
 You're bundled up
 
 SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
 
 
 RECEIVED: sequence 1
@@ -932,11 +947,6 @@ little fuel myself
 And we could all use a little
 
 SENDING ACK: sequence 0
-
-
-RECEIVED: sequence 1: damaged packet
-
-SENDING NAK: sequence 1
 
 
 RECEIVED: sequence 1
@@ -974,6 +984,16 @@ I ain't the sharpest
 SENDING ACK: sequence 0
 
 
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
 RECEIVED: sequence 1
 Data: 
 b
@@ -982,6 +1002,11 @@ In the shape of an "L" on her forehead
 Well, 
 
 SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
 
 
 RECEIVED: sequence 0
@@ -1010,16 +1035,6 @@ Hey now you're an All Star g
 SENDING ACK: sequence 0
 
 
-RECEIVED: sequence 1: damaged packet
-
-SENDING NAK: sequence 1
-
-
-RECEIVED: sequence 1: damaged packet
-
-SENDING NAK: sequence 1
-
-
 RECEIVED: sequence 1
 Data: 
 id
@@ -1027,11 +1042,6 @@ And all that glitters is gold
 Only shooting s
 
 SENDING ACK: sequence 1
-
-
-RECEIVED: sequence 0: damaged packet
-
-SENDING NAK: sequence 0
 
 
 RECEIVED: sequence 0
@@ -1092,6 +1102,11 @@ You'll never
 SENDING ACK: sequence 0
 
 
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
 RECEIVED: sequence 1
 Data: 
  all that glitters is gold
@@ -1100,12 +1115,22 @@ Only shootin' stars b
 SENDING ACK: sequence 1
 
 
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
 RECEIVED: sequence 0
 Data: 
  sharpest tool in the shed
 She was looking kind 
 
 SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
 
 
 RECEIVED: sequence 1
@@ -1125,17 +1150,22 @@ Your brain gets smart but
 SENDING ACK: sequence 0
 
 
-RECEIVED: sequence 1: damaged packet
-
-SENDING NAK: sequence 1
-
-
 RECEIVED: sequence 1
 Data: 
 ing the back streets?
 You'll never know if you d
 
 SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
 
 
 RECEIVED: sequence 0
@@ -1155,11 +1185,6 @@ It's a cool place
 SENDING ACK: sequence 1
 
 
-RECEIVED: sequence 0: damaged packet
-
-SENDING NAK: sequence 0
-
-
 RECEIVED: sequence 0
 Data: 
 lder
@@ -1177,11 +1202,6 @@ The water's getting warm so you might as well s
 SENDING ACK: sequence 1
 
 
-RECEIVED: sequence 0: damaged packet
-
-SENDING NAK: sequence 0
-
-
 RECEIVED: sequence 0
 Data: 
  never get bored.
@@ -1191,6 +1211,11 @@ Data:
 Somebody once as
 
 SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
 
 
 RECEIVED: sequence 1
@@ -1235,11 +1260,6 @@ Somebody once told me th
 SENDING ACK: sequence 1
 
 
-RECEIVED: sequence 0: damaged packet
-
-SENDING NAK: sequence 0
-
-
 RECEIVED: sequence 0
 Data: 
 king kind of dumb with her finger and her thumb
@@ -1278,6 +1298,11 @@ Data:
  now you're a Rock Star get the show on get paid
 
 SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
 
 
 RECEIVED: sequence 1
@@ -1319,11 +1344,6 @@ d use a little fuel myself
 And we could all use 
 
 SENDING ACK: sequence 1
-
-
-RECEIVED: sequence 0: damaged packet
-
-SENDING NAK: sequence 0
 
 
 RECEIVED: sequence 0
@@ -1397,6 +1417,11 @@ Hey now you're an Al
 SENDING ACK: sequence 1
 
 
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
 RECEIVED: sequence 0
 Data: 
 n get paid
@@ -1440,11 +1465,6 @@ I need to get myself away from this pl
 SENDING ACK: sequence 0
 
 
-RECEIVED: sequence 1: damaged packet
-
-SENDING NAK: sequence 1
-
-
 RECEIVED: sequence 1
 Data: 
 d all use a little change
@@ -1463,12 +1483,27 @@ You
 SENDING ACK: sequence 0
 
 
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
 RECEIVED: sequence 1
 Data: 
 o what's wrong with taking the back streets
 You'
 
 SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
 
 
 RECEIVED: sequence 0
@@ -1479,6 +1514,16 @@ And all that glitters is gold
 Only shootin'
 
 SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
 
 
 RECEIVED: sequence 1
@@ -1506,27 +1551,12 @@ Your brain gets sm
 SENDING ACK: sequence 1
 
 
-RECEIVED: sequence 0: damaged packet
-
-SENDING NAK: sequence 0
-
-
 RECEIVED: sequence 0
 Data: 
 with taking the back streets?
 You'll never know 
 
 SENDING ACK: sequence 0
-
-
-RECEIVED: sequence 1: damaged packet
-
-SENDING NAK: sequence 1
-
-
-RECEIVED: sequence 1: damaged packet
-
-SENDING NAK: sequence 1
 
 
 RECEIVED: sequence 1
@@ -1556,6 +1586,11 @@ Jud
 SENDING ACK: sequence 1
 
 
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
 RECEIVED: sequence 0
 Data: 
 tty thin
@@ -1575,11 +1610,6 @@ Somebody
 SENDING ACK: sequence 1
 
 
-RECEIVED: sequence 0: damaged packet
-
-SENDING NAK: sequence 0
-
-
 RECEIVED: sequence 0
 Data: 
 om this place
@@ -1597,17 +1627,17 @@ Fed
 SENDING ACK: sequence 1
 
 
-RECEIVED: sequence 0: damaged packet
-
-SENDING NAK: sequence 0
-
-
 RECEIVED: sequence 0
 Data: 
 or fun
 Your brain gets smart but your head gets 
 
 SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
 
 
 RECEIVED: sequence 1
@@ -1647,6 +1677,11 @@ Fed to the rules a
 SENDING ACK: sequence 0
 
 
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
 RECEIVED: sequence 1
 Data: 
 in gets smart but your head gets dumb
@@ -1654,6 +1689,11 @@ in gets smart but your head gets dumb
 So much t
 
 SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
 
 
 RECEIVED: sequence 0
@@ -1670,6 +1710,11 @@ play
 Hey now you're a Rock Star get the show on 
 
 SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
 
 
 RECEIVED: sequence 0
@@ -1723,11 +1768,6 @@ Fed to the rules and I hit the ground run
 SENDING ACK: sequence 1
 
 
-RECEIVED: sequence 0: damaged packet
-
-SENDING NAK: sequence 0
-
-
 RECEIVED: sequence 0
 Data: 
 head gets dumb
@@ -1736,21 +1776,6 @@ So much to do so much to see
 So 
 
 SENDING ACK: sequence 0
-
-
-RECEIVED: sequence 1: damaged packet
-
-SENDING NAK: sequence 1
-
-
-RECEIVED: sequence 1: damaged packet
-
-SENDING NAK: sequence 1
-
-
-RECEIVED: sequence 1: damaged packet
-
-SENDING NAK: sequence 1
 
 
 RECEIVED: sequence 1
@@ -1769,6 +1794,11 @@ dy once told me the world is gonna roll me
 I ain
 
 SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
 
 
 RECEIVED: sequence 1
@@ -1796,16 +1826,6 @@ So what's wrong wi
 SENDING ACK: sequence 1
 
 
-RECEIVED: sequence 0: damaged packet
-
-SENDING NAK: sequence 0
-
-
-RECEIVED: sequence 0: damaged packet
-
-SENDING NAK: sequence 0
-
-
 RECEIVED: sequence 0
 Data: 
  shine if you don't glow
@@ -1816,17 +1836,22 @@ Hey now you'
 SENDING ACK: sequence 0
 
 
-RECEIVED: sequence 1: damaged packet
-
-SENDING NAK: sequence 1
-
-
 RECEIVED: sequence 1
 Data: 
 e show on get paid
 And all that glitters is gold
 
 SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
 
 
 RECEIVED: sequence 0
@@ -1846,6 +1871,16 @@ The ice we skate is getting prett
 SENDING ACK: sequence 1
 
 
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
 RECEIVED: sequence 0
 Data: 
 re. How about yours?
@@ -1862,11 +1897,6 @@ I need to get myself away from
 SENDING ACK: sequence 1
 
 
-RECEIVED: sequence 0: damaged packet
-
-SENDING NAK: sequence 0
-
-
 RECEIVED: sequence 0
 Data: 
  we could all use a little change
@@ -1874,11 +1904,6 @@ Data:
 Well, the yea
 
 SENDING ACK: sequence 0
-
-
-RECEIVED: sequence 1: damaged packet
-
-SENDING NAK: sequence 1
 
 
 RECEIVED: sequence 1
@@ -1895,16 +1920,6 @@ to see
 So what's wrong with taking the back stre
 
 SENDING ACK: sequence 0
-
-
-RECEIVED: sequence 1: damaged packet
-
-SENDING NAK: sequence 1
-
-
-RECEIVED: sequence 1: damaged packet
-
-SENDING NAK: sequence 1
 
 
 RECEIVED: sequence 1
@@ -1945,6 +1960,16 @@ Your brain
 SENDING ACK: sequence 0
 
 
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
 RECEIVED: sequence 1
 Data: 
 s wrong with taking the back streets?
@@ -1958,6 +1983,16 @@ Data:
 y now you're an All Star get your game on, go pl
 
 SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
 
 
 RECEIVED: sequence 1
@@ -1997,6 +2032,11 @@ like it and I'll never get bored.
 SENDING ACK: sequence 0
 
 
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
 RECEIVED: sequence 1
 Data: 
  away from this place
@@ -2004,16 +2044,6 @@ I said yep what a concept
 
 
 SENDING ACK: sequence 1
-
-
-RECEIVED: sequence 0: damaged packet
-
-SENDING NAK: sequence 0
-
-
-RECEIVED: sequence 0: damaged packet
-
-SENDING NAK: sequence 0
 
 
 RECEIVED: sequence 0
@@ -2067,17 +2097,17 @@ She was looking kind of dumb with her finge
 SENDING ACK: sequence 0
 
 
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
 RECEIVED: sequence 1
 Data: 
 art coming and they don't stop coming
 Fed to the
 
 SENDING ACK: sequence 1
-
-
-RECEIVED: sequence 0: damaged packet
-
-SENDING NAK: sequence 0
 
 
 RECEIVED: sequence 0
@@ -2097,17 +2127,17 @@ You'll never s
 SENDING ACK: sequence 1
 
 
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
 RECEIVED: sequence 0
 Data: 
  on, go play
 Hey now you're a Rock Star get the 
 
 SENDING ACK: sequence 0
-
-
-RECEIVED: sequence 1: damaged packet
-
-SENDING NAK: sequence 1
 
 
 RECEIVED: sequence 1: damaged packet
@@ -2158,6 +2188,11 @@ And w
 SENDING ACK: sequence 1
 
 
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
 RECEIVED: sequence 0
 Data: 
 't stop coming
@@ -2173,6 +2208,11 @@ ut your head gets dumb
 So much to do so much to
 
 SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
 
 
 RECEIVED: sequence 0
@@ -2192,17 +2232,17 @@ Somebody once told me the world is gonna roll
 SENDING ACK: sequence 1
 
 
-RECEIVED: sequence 0: damaged packet
-
-SENDING NAK: sequence 0
-
-
 RECEIVED: sequence 0
 Data: 
  her finger and her thumb
 In the shape of an "L"
 
 SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
 
 
 RECEIVED: sequence 1
@@ -2223,11 +2263,6 @@ So what's
 SENDING ACK: sequence 0
 
 
-RECEIVED: sequence 1: damaged packet
-
-SENDING NAK: sequence 1
-
-
 RECEIVED: sequence 1
 Data: 
 ll never shine if you don't glow
@@ -2236,6 +2271,11 @@ ll never shine if you don't glow
 Hey 
 
 SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
 
 
 RECEIVED: sequence 0: damaged packet
@@ -2315,6 +2355,11 @@ So what's wrong with taking the b
 SENDING ACK: sequence 1
 
 
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
 RECEIVED: sequence 0
 Data: 
 n't glow.
@@ -2348,6 +2393,11 @@ Well, the years star
 SENDING ACK: sequence 0
 
 
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
 RECEIVED: sequence 1
 Data: 
 running
@@ -2363,6 +2413,11 @@ So what's wrong with taking the back streets?
 Yo
 
 SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
 
 
 RECEIVED: sequence 1
@@ -2411,11 +2466,6 @@ e way I like it and I'll never get bored.
 SENDING ACK: sequence 1
 
 
-RECEIVED: sequence 0: damaged packet
-
-SENDING NAK: sequence 0
-
-
 RECEIVED: sequence 0
 Data: 
 t myself away from this place
@@ -2433,22 +2483,12 @@ Well, the years start coming and they don't
 SENDING ACK: sequence 1
 
 
-RECEIVED: sequence 0: damaged packet
-
-SENDING NAK: sequence 0
-
-
 RECEIVED: sequence 0
 Data: 
 se not to live for fun
 Your brain gets smart but
 
 SENDING ACK: sequence 0
-
-
-RECEIVED: sequence 1: damaged packet
-
-SENDING NAK: sequence 1
 
 
 RECEIVED: sequence 1
@@ -2468,11 +2508,6 @@ Only shootin' stars break the mold
 SENDING ACK: sequence 0
 
 
-RECEIVED: sequence 1: damaged packet
-
-SENDING NAK: sequence 1
-
-
 RECEIVED: sequence 1
 Data: 
  in the shed
@@ -2481,17 +2516,17 @@ She was looking kind of dumb with h
 SENDING ACK: sequence 1
 
 
-RECEIVED: sequence 0: damaged packet
-
-SENDING NAK: sequence 0
-
-
 RECEIVED: sequence 0
 Data: 
 years start coming and they don't stop coming
 Fe
 
 SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
 
 
 RECEIVED: sequence 1
@@ -2509,6 +2544,11 @@ You'll never know if you don't go
 You'll
 
 SENDING ACK: sequence 0
+
+
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
 
 
 RECEIVED: sequence 1
@@ -2601,11 +2641,6 @@ Somebody once told me the world is gon
 SENDING ACK: sequence 0
 
 
-RECEIVED: sequence 1: damaged packet
-
-SENDING NAK: sequence 1
-
-
 RECEIVED: sequence 1
 Data: 
 umb with her finger and her thumb
@@ -2630,6 +2665,11 @@ So much to do so much to see
 So
 
 SENDING ACK: sequence 1
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
 
 
 RECEIVED: sequence 0
@@ -2658,6 +2698,11 @@ You're bundled up now b
 SENDING ACK: sequence 0
 
 
+RECEIVED: sequence 1: damaged packet
+
+SENDING NAK: sequence 1
+
+
 RECEIVED: sequence 1
 Data: 
 hole in the satellite picture
@@ -2667,17 +2712,22 @@ The ice we skate
 SENDING ACK: sequence 1
 
 
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
 RECEIVED: sequence 0
 Data: 
 My world's on fire. How about yours?
 That's the 
 
 SENDING ACK: sequence 0
-
-
-RECEIVED: sequence 1: damaged packet
-
-SENDING NAK: sequence 1
 
 
 RECEIVED: sequence 1
@@ -2766,16 +2816,6 @@ So what's wrong with taking the back str
 SENDING ACK: sequence 1
 
 
-RECEIVED: sequence 0: damaged packet
-
-SENDING NAK: sequence 0
-
-
-RECEIVED: sequence 0: damaged packet
-
-SENDING NAK: sequence 0
-
-
 RECEIVED: sequence 0
 Data: 
 ow
@@ -2810,6 +2850,11 @@ The water's get
 SENDING ACK: sequence 1
 
 
+RECEIVED: sequence 0: damaged packet
+
+SENDING NAK: sequence 0
+
+
 RECEIVED: sequence 0
 Data: 
 hat's the way I like it and I'll never get bored
@@ -2823,11 +2868,6 @@ ed to get myself away from this place
 I said yep
 
 SENDING ACK: sequence 1
-
-
-RECEIVED: sequence 0: damaged packet
-
-SENDING NAK: sequence 0
 
 
 RECEIVED: sequence 0
@@ -2855,11 +2895,6 @@ You'll never know
 SENDING ACK: sequence 0
 
 
-RECEIVED: sequence 1: damaged packet
-
-SENDING NAK: sequence 1
-
-
 RECEIVED: sequence 1
 Data: 
 hat glitters is gold
@@ -2878,4 +2913,4 @@ Waiting for client connection......
 ^C
 bash-4.1$ exit
 
-Script done on Sun 23 Mar 2014 08:36:03 PM CDT
+Script done on Sun 23 Mar 2014 08:46:10 PM CDT

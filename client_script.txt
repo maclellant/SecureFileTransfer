@@ -1,5 +1,5 @@
-Script started on Sun 23 Mar 2014 08:35:48 PM CDT
-[?1034hbash-4.1$ ./[K[K./client 10051 131.204.14.179 10050 PUT TestFile.txt 20 10
+Script started on Sun 23 Mar 2014 08:45:48 PM CDT
+[?1034hbash-4.1$ ./client 10051 131.204.14.179 10050 PUT TestFile.txt 25 10
 Attempting to talk wth server at 131.204.14.179:10050
 PUT: Sending PUT request for TestFile.txt
 
@@ -178,6 +178,13 @@ SENDING: sequence 0
 Data: na roll me
 I ain't the sharpest tool in the shed
 
+NOT ACKNOWLEDGED: sequence 0: data packet corrupted
+
+
+SENDING: sequence 0
+Data: na roll me
+I ain't the sharpest tool in the shed
+
 ACKNOWLEDGED: sequence 0: data packet accepted
 
 
@@ -208,6 +215,12 @@ SENDING: sequence 0
 Data: s:]
 Hey now you're an All Star get your game on,
 
+TIMEOUT: data transfer not acknowledged
+
+SENDING: sequence 0
+Data: s:]
+Hey now you're an All Star get your game on,
+
 ACKNOWLEDGED: sequence 0: data packet accepted
 
 
@@ -216,13 +229,6 @@ Data: glitters is gold
 Only shooting stars break the m
 
 ACKNOWLEDGED: sequence 1: data packet accepted
-
-
-SENDING: sequence 0
-Data: ut wait 'til you get older
-But the media men beg
-
-NOT ACKNOWLEDGED: sequence 0: data packet corrupted
 
 
 SENDING: sequence 0
@@ -333,6 +339,14 @@ Data: eets?
 You'll never know if you don't go
 You'll n
 
+NOT ACKNOWLEDGED: sequence 1: data packet corrupted
+
+
+SENDING: sequence 1
+Data: eets?
+You'll never know if you don't go
+You'll n
+
 ACKNOWLEDGED: sequence 1: data packet accepted
 
 
@@ -348,8 +362,7 @@ Data: reak the mold
 
 It's a cool place and they say it
 
-NOT ACKNOWLEDGED: sequence 1: data packet corrupted
-
+TIMEOUT: data transfer not acknowledged
 
 SENDING: sequence 1
 Data: reak the mold
@@ -370,13 +383,17 @@ SENDING: sequence 1
 Data: ting warm so you might as well swim
 My world's o
 
-TIMEOUT: data transfer not acknowledged
-
-SENDING: sequence 1
-Data: ting warm so you might as well swim
-My world's o
-
 ACKNOWLEDGED: sequence 1: data packet accepted
+
+
+SENDING: sequence 0
+Data: .
+
+[Chorus 2x]
+
+Somebody once asked could I spar
+
+NOT ACKNOWLEDGED: sequence 0: data packet corrupted
 
 
 SENDING: sequence 0
@@ -400,13 +417,6 @@ SENDING: sequence 0
 Data: ey don't stop coming
 Fed to the rules and I hit 
 
-NOT ACKNOWLEDGED: sequence 0: data packet corrupted
-
-
-SENDING: sequence 0
-Data: ey don't stop coming
-Fed to the rules and I hit 
-
 ACKNOWLEDGED: sequence 0: data packet accepted
 
 
@@ -416,6 +426,13 @@ Data: mart but your head gets dumb
 So much to do so m
 
 ACKNOWLEDGED: sequence 1: data packet accepted
+
+
+SENDING: sequence 0
+Data: if you don't go
+You'll never shine if you don't 
+
+NOT ACKNOWLEDGED: sequence 0: data packet corrupted
 
 
 SENDING: sequence 0
@@ -461,6 +478,15 @@ You'll never shine if you don't glow
 
 [Chorus:
 
+NOT ACKNOWLEDGED: sequence 1: data packet corrupted
+
+
+SENDING: sequence 1
+Data: o
+You'll never shine if you don't glow
+
+[Chorus:
+
 ACKNOWLEDGED: sequence 1: data packet accepted
 
 
@@ -497,13 +523,6 @@ SENDING: sequence 0
 Data: uld I spare some change for gas
 I need to get my
 
-NOT ACKNOWLEDGED: sequence 0: data packet corrupted
-
-
-SENDING: sequence 0
-Data: uld I spare some change for gas
-I need to get my
-
 ACKNOWLEDGED: sequence 0: data packet accepted
 
 
@@ -520,6 +539,38 @@ Data: and I hit the ground running
 Didn't make sense n
 
 ACKNOWLEDGED: sequence 0: data packet accepted
+
+
+SENDING: sequence 1
+Data: to do so much to see
+So what's wrong with taking
+
+NOT ACKNOWLEDGED: sequence 1: data packet corrupted
+
+
+SENDING: sequence 1
+Data: to do so much to see
+So what's wrong with taking
+
+TIMEOUT: data transfer not acknowledged
+
+SENDING: sequence 1
+Data: to do so much to see
+So what's wrong with taking
+
+TIMEOUT: data transfer not acknowledged
+
+SENDING: sequence 1
+Data: to do so much to see
+So what's wrong with taking
+
+TIMEOUT: data transfer not acknowledged
+
+SENDING: sequence 1
+Data: to do so much to see
+So what's wrong with taking
+
+NOT ACKNOWLEDGED: sequence 1: data packet corrupted
 
 
 SENDING: sequence 1
@@ -557,38 +608,6 @@ SENDING: sequence 1
 Data: d is gonna roll me
 I ain't the sharpest tool in 
 
-TIMEOUT: data transfer not acknowledged
-
-SENDING: sequence 1
-Data: d is gonna roll me
-I ain't the sharpest tool in 
-
-TIMEOUT: data transfer not acknowledged
-
-SENDING: sequence 1
-Data: d is gonna roll me
-I ain't the sharpest tool in 
-
-TIMEOUT: data transfer not acknowledged
-
-SENDING: sequence 1
-Data: d is gonna roll me
-I ain't the sharpest tool in 
-
-NOT ACKNOWLEDGED: sequence 1: data packet corrupted
-
-
-SENDING: sequence 1
-Data: d is gonna roll me
-I ain't the sharpest tool in 
-
-NOT ACKNOWLEDGED: sequence 1: data packet corrupted
-
-
-SENDING: sequence 1
-Data: d is gonna roll me
-I ain't the sharpest tool in 
-
 ACKNOWLEDGED: sequence 1: data packet accepted
 
 
@@ -604,8 +623,7 @@ SENDING: sequence 1
 Data: round running
 Didn't make sense not to live for 
 
-NOT ACKNOWLEDGED: sequence 1: data packet corrupted
-
+TIMEOUT: data transfer not acknowledged
 
 SENDING: sequence 1
 Data: round running
@@ -613,6 +631,12 @@ Didn't make sense not to live for
 
 ACKNOWLEDGED: sequence 1: data packet accepted
 
+
+SENDING: sequence 0
+Data: o see
+So what's wrong with taking the back stree
+
+TIMEOUT: data transfer not acknowledged
 
 SENDING: sequence 0
 Data: o see
@@ -627,22 +651,8 @@ Data:
 [Chorus:]
 Hey now you're an All Star get your 
 
-TIMEOUT: data transfer not acknowledged
-
-SENDING: sequence 1
-Data: 
-
-[Chorus:]
-Hey now you're an All Star get your 
-
 ACKNOWLEDGED: sequence 1: data packet accepted
 
-
-SENDING: sequence 0
-Data: ll that glitters is gold
-Only shooting stars bre
-
-TIMEOUT: data transfer not acknowledged
 
 SENDING: sequence 0
 Data: ll that glitters is gold
@@ -698,7 +708,27 @@ SENDING: sequence 1
 Data: ith taking the back streets
 You'll never know if
 
+NOT ACKNOWLEDGED: sequence 1: data packet corrupted
+
+
+SENDING: sequence 1
+Data: ith taking the back streets
+You'll never know if
+
 ACKNOWLEDGED: sequence 1: data packet accepted
+
+
+SENDING: sequence 0
+Data: t glitters is gold
+Only shootin' stars break the
+
+TIMEOUT: data transfer not acknowledged
+
+SENDING: sequence 0
+Data: t glitters is gold
+Only shootin' stars break the
+
+NOT ACKNOWLEDGED: sequence 0: data packet corrupted
 
 
 SENDING: sequence 0
@@ -725,17 +755,6 @@ ACKNOWLEDGED: sequence 1: data packet accepted
 SENDING: sequence 0
 Data: , the years start coming and they don't stop com
 
-TIMEOUT: data transfer not acknowledged
-
-SENDING: sequence 0
-Data: , the years start coming and they don't stop com
-
-NOT ACKNOWLEDGED: sequence 0: data packet corrupted
-
-
-SENDING: sequence 0
-Data: , the years start coming and they don't stop com
-
 ACKNOWLEDGED: sequence 0: data packet accepted
 
 
@@ -751,15 +770,14 @@ Data: back streets?
 You'll never know if you don't go
 
 
-NOT ACKNOWLEDGED: sequence 0: data packet corrupted
-
-
-SENDING: sequence 0
-Data: back streets?
-You'll never know if you don't go
-
-
 ACKNOWLEDGED: sequence 0: data packet accepted
+
+
+SENDING: sequence 1
+Data:  get your game on, go play
+Hey now you're a Rock
+
+NOT ACKNOWLEDGED: sequence 1: data packet corrupted
 
 
 SENDING: sequence 1
@@ -775,6 +793,27 @@ Data:  stars break the mold
 It's a cool place and the
 
 ACKNOWLEDGED: sequence 0: data packet accepted
+
+
+SENDING: sequence 1
+Data:  the media men beg to differ
+Judging by the hole
+
+NOT ACKNOWLEDGED: sequence 1: data packet corrupted
+
+
+SENDING: sequence 1
+Data:  the media men beg to differ
+Judging by the hole
+
+NOT ACKNOWLEDGED: sequence 1: data packet corrupted
+
+
+SENDING: sequence 1
+Data:  the media men beg to differ
+Judging by the hole
+
+NOT ACKNOWLEDGED: sequence 1: data packet corrupted
 
 
 SENDING: sequence 1
@@ -805,21 +844,27 @@ SENDING: sequence 0
 Data: said yep what a concept
 I could use a little fue
 
+NOT ACKNOWLEDGED: sequence 0: data packet corrupted
+
+
+SENDING: sequence 0
+Data: said yep what a concept
+I could use a little fue
+
+NOT ACKNOWLEDGED: sequence 0: data packet corrupted
+
+
+SENDING: sequence 0
+Data: said yep what a concept
+I could use a little fue
+
+TIMEOUT: data transfer not acknowledged
+
+SENDING: sequence 0
+Data: said yep what a concept
+I could use a little fue
+
 ACKNOWLEDGED: sequence 0: data packet accepted
-
-
-SENDING: sequence 1
-Data: g and they don't stop coming
-Fed to the rules an
-
-NOT ACKNOWLEDGED: sequence 1: data packet corrupted
-
-
-SENDING: sequence 1
-Data: g and they don't stop coming
-Fed to the rules an
-
-NOT ACKNOWLEDGED: sequence 1: data packet corrupted
 
 
 SENDING: sequence 1
@@ -841,6 +886,13 @@ Data: n gets smart but your head gets dumb
 
 So much to
 
+TIMEOUT: data transfer not acknowledged
+
+SENDING: sequence 0
+Data: n gets smart but your head gets dumb
+
+So much to
+
 ACKNOWLEDGED: sequence 0: data packet accepted
 
 
@@ -855,26 +907,6 @@ SENDING: sequence 0
 Data:  break the mold
 Somebody once told me the world 
 
-NOT ACKNOWLEDGED: sequence 0: data packet corrupted
-
-
-SENDING: sequence 0
-Data:  break the mold
-Somebody once told me the world 
-
-NOT ACKNOWLEDGED: sequence 0: data packet corrupted
-
-
-SENDING: sequence 0
-Data:  break the mold
-Somebody once told me the world 
-
-TIMEOUT: data transfer not acknowledged
-
-SENDING: sequence 0
-Data:  break the mold
-Somebody once told me the world 
-
 ACKNOWLEDGED: sequence 0: data packet accepted
 
 
@@ -882,7 +914,21 @@ SENDING: sequence 1
 Data: d of dumb with her finger and her thumb
 In the s
 
+NOT ACKNOWLEDGED: sequence 1: data packet corrupted
+
+
+SENDING: sequence 1
+Data: d of dumb with her finger and her thumb
+In the s
+
 ACKNOWLEDGED: sequence 1: data packet accepted
+
+
+SENDING: sequence 0
+Data: t stop coming
+Fed to the rules and I hit the gro
+
+NOT ACKNOWLEDGED: sequence 0: data packet corrupted
 
 
 SENDING: sequence 0
@@ -906,34 +952,14 @@ You'll never shine if you don't glow
 
 
 
-NOT ACKNOWLEDGED: sequence 0: data packet corrupted
-
-
-SENDING: sequence 0
-Data:  don't go
-You'll never shine if you don't glow
-
-
-
-TIMEOUT: data transfer not acknowledged
-
-SENDING: sequence 0
-Data:  don't go
-You'll never shine if you don't glow
-
-
-
-NOT ACKNOWLEDGED: sequence 0: data packet corrupted
-
-
-SENDING: sequence 0
-Data:  don't go
-You'll never shine if you don't glow
-
-
-
 ACKNOWLEDGED: sequence 0: data packet accepted
 
+
+SENDING: sequence 1
+Data: 're a Rock Star get the show on get paid
+And all
+
+TIMEOUT: data transfer not acknowledged
 
 SENDING: sequence 1
 Data: 're a Rock Star get the show on get paid
@@ -946,13 +972,15 @@ SENDING: sequence 0
 Data: ce and they say it gets colder
 You're bundled up
 
-TIMEOUT: data transfer not acknowledged
-
-SENDING: sequence 0
-Data: ce and they say it gets colder
-You're bundled up
-
 ACKNOWLEDGED: sequence 0: data packet accepted
+
+
+SENDING: sequence 1
+Data: y the hole in the satellite picture
+
+The ice we 
+
+NOT ACKNOWLEDGED: sequence 1: data packet corrupted
 
 
 SENDING: sequence 1
@@ -975,12 +1003,6 @@ SENDING: sequence 1
 Data: asked could I spare some change for gas
 I need t
 
-TIMEOUT: data transfer not acknowledged
-
-SENDING: sequence 1
-Data: asked could I spare some change for gas
-I need t
-
 ACKNOWLEDGED: sequence 1: data packet accepted
 
 
@@ -988,14 +1010,13 @@ SENDING: sequence 0
 Data: little fuel myself
 And we could all use a little
 
+TIMEOUT: data transfer not acknowledged
+
+SENDING: sequence 0
+Data: little fuel myself
+And we could all use a little
+
 ACKNOWLEDGED: sequence 0: data packet accepted
-
-
-SENDING: sequence 1
-Data: e rules and I hit the ground running
-Didn't make
-
-NOT ACKNOWLEDGED: sequence 1: data packet corrupted
 
 
 SENDING: sequence 1
@@ -1026,13 +1047,25 @@ SENDING: sequence 0
 Data: the world is gonna roll me
 I ain't the sharpest 
 
-TIMEOUT: data transfer not acknowledged
-
-SENDING: sequence 0
-Data: the world is gonna roll me
-I ain't the sharpest 
-
 ACKNOWLEDGED: sequence 0: data packet accepted
+
+
+SENDING: sequence 1
+Data: b
+In the shape of an "L" on her forehead
+
+Well, 
+
+NOT ACKNOWLEDGED: sequence 1: data packet corrupted
+
+
+SENDING: sequence 1
+Data: b
+In the shape of an "L" on her forehead
+
+Well, 
+
+NOT ACKNOWLEDGED: sequence 1: data packet corrupted
 
 
 SENDING: sequence 1
@@ -1048,8 +1081,21 @@ SENDING: sequence 0
 Data: it the ground running
 Didn't make sense not to l
 
+NOT ACKNOWLEDGED: sequence 0: data packet corrupted
+
+
+SENDING: sequence 0
+Data: it the ground running
+Didn't make sense not to l
+
 ACKNOWLEDGED: sequence 0: data packet accepted
 
+
+SENDING: sequence 1
+Data: o much to see
+So what's wrong with taking the ba
+
+TIMEOUT: data transfer not acknowledged
 
 SENDING: sequence 1
 Data: o much to see
@@ -1072,16 +1118,7 @@ Data: id
 And all that glitters is gold
 Only shooting s
 
-NOT ACKNOWLEDGED: sequence 1: data packet corrupted
-
-
-SENDING: sequence 1
-Data: id
-And all that glitters is gold
-Only shooting s
-
-NOT ACKNOWLEDGED: sequence 1: data packet corrupted
-
+TIMEOUT: data transfer not acknowledged
 
 SENDING: sequence 1
 Data: id
@@ -1095,21 +1132,8 @@ SENDING: sequence 0
 Data: bundled up now but wait 'til you get older
 But t
 
-NOT ACKNOWLEDGED: sequence 0: data packet corrupted
-
-
-SENDING: sequence 0
-Data: bundled up now but wait 'til you get older
-But t
-
 ACKNOWLEDGED: sequence 0: data packet accepted
 
-
-SENDING: sequence 1
-Data: he ice we skate is getting pretty thin
-The water
-
-TIMEOUT: data transfer not acknowledged
 
 SENDING: sequence 1
 Data: he ice we skate is getting pretty thin
@@ -1122,15 +1146,14 @@ SENDING: sequence 0
 Data: urs?
 That's the way I like it and I'll never get
 
+TIMEOUT: data transfer not acknowledged
+
+SENDING: sequence 0
+Data: urs?
+That's the way I like it and I'll never get
+
 ACKNOWLEDGED: sequence 0: data packet accepted
 
-
-SENDING: sequence 1
-Data: s
-I need to get myself away from this place
-I sa
-
-TIMEOUT: data transfer not acknowledged
 
 SENDING: sequence 1
 Data: s
@@ -1152,14 +1175,26 @@ SENDING: sequence 1
 Data: idn't make sense not to live for fun
 Your brain 
 
-ACKNOWLEDGED: sequence 1: data packet accepted
+TIMEOUT: data transfer not acknowledged
 
-
-SENDING: sequence 0
-Data:  wrong with taking the back streets
-You'll never
+SENDING: sequence 1
+Data: idn't make sense not to live for fun
+Your brain 
 
 TIMEOUT: data transfer not acknowledged
+
+SENDING: sequence 1
+Data: idn't make sense not to live for fun
+Your brain 
+
+TIMEOUT: data transfer not acknowledged
+
+SENDING: sequence 1
+Data: idn't make sense not to live for fun
+Your brain 
+
+ACKNOWLEDGED: sequence 1: data packet accepted
+
 
 SENDING: sequence 0
 Data:  wrong with taking the back streets
@@ -1172,7 +1207,27 @@ SENDING: sequence 1
 Data:  all that glitters is gold
 Only shootin' stars b
 
+TIMEOUT: data transfer not acknowledged
+
+SENDING: sequence 1
+Data:  all that glitters is gold
+Only shootin' stars b
+
+NOT ACKNOWLEDGED: sequence 1: data packet corrupted
+
+
+SENDING: sequence 1
+Data:  all that glitters is gold
+Only shootin' stars b
+
 ACKNOWLEDGED: sequence 1: data packet accepted
+
+
+SENDING: sequence 0
+Data:  sharpest tool in the shed
+She was looking kind 
+
+NOT ACKNOWLEDGED: sequence 0: data packet corrupted
 
 
 SENDING: sequence 0
@@ -1187,21 +1242,8 @@ Data: ad
 
 Well, the years start coming and they don't 
 
-TIMEOUT: data transfer not acknowledged
+NOT ACKNOWLEDGED: sequence 1: data packet corrupted
 
-SENDING: sequence 1
-Data: ad
-
-Well, the years start coming and they don't 
-
-TIMEOUT: data transfer not acknowledged
-
-SENDING: sequence 1
-Data: ad
-
-Well, the years start coming and they don't 
-
-TIMEOUT: data transfer not acknowledged
 
 SENDING: sequence 1
 Data: ad
@@ -1222,20 +1264,21 @@ SENDING: sequence 1
 Data: ing the back streets?
 You'll never know if you d
 
-TIMEOUT: data transfer not acknowledged
-
-SENDING: sequence 1
-Data: ing the back streets?
-You'll never know if you d
-
-NOT ACKNOWLEDGED: sequence 1: data packet corrupted
-
-
-SENDING: sequence 1
-Data: ing the back streets?
-You'll never know if you d
-
 ACKNOWLEDGED: sequence 1: data packet accepted
+
+
+SENDING: sequence 0
+Data: All Star get your game on, go play
+Hey now you'r
+
+NOT ACKNOWLEDGED: sequence 0: data packet corrupted
+
+
+SENDING: sequence 0
+Data: All Star get your game on, go play
+Hey now you'r
+
+NOT ACKNOWLEDGED: sequence 0: data packet corrupted
 
 
 SENDING: sequence 0
@@ -1252,21 +1295,6 @@ It's a cool place
 
 ACKNOWLEDGED: sequence 1: data packet accepted
 
-
-SENDING: sequence 0
-Data: lder
-But the media men beg to differ
-Judging by 
-
-NOT ACKNOWLEDGED: sequence 0: data packet corrupted
-
-
-SENDING: sequence 0
-Data: lder
-But the media men beg to differ
-Judging by 
-
-TIMEOUT: data transfer not acknowledged
 
 SENDING: sequence 0
 Data: lder
@@ -1290,27 +1318,23 @@ Data:  never get bored.
 
 Somebody once as
 
-NOT ACKNOWLEDGED: sequence 0: data packet corrupted
-
-
-SENDING: sequence 0
-Data:  never get bored.
-
-[Chorus 2x]
-
-Somebody once as
-
-TIMEOUT: data transfer not acknowledged
-
-SENDING: sequence 0
-Data:  never get bored.
-
-[Chorus 2x]
-
-Somebody once as
-
 ACKNOWLEDGED: sequence 0: data packet accepted
 
+
+SENDING: sequence 1
+Data: place
+I said yep what a concept
+I could use a li
+
+NOT ACKNOWLEDGED: sequence 1: data packet corrupted
+
+
+SENDING: sequence 1
+Data: place
+I said yep what a concept
+I could use a li
+
+TIMEOUT: data transfer not acknowledged
 
 SENDING: sequence 1
 Data: place
@@ -1353,19 +1377,6 @@ SENDING: sequence 0
 Data: king kind of dumb with her finger and her thumb
 
 
-NOT ACKNOWLEDGED: sequence 0: data packet corrupted
-
-
-SENDING: sequence 0
-Data: king kind of dumb with her finger and her thumb
-
-
-TIMEOUT: data transfer not acknowledged
-
-SENDING: sequence 0
-Data: king kind of dumb with her finger and her thumb
-
-
 ACKNOWLEDGED: sequence 0: data packet accepted
 
 
@@ -1401,8 +1412,22 @@ SENDING: sequence 1
 Data: cool place and they say it gets colder
 You're bu
 
+NOT ACKNOWLEDGED: sequence 1: data packet corrupted
+
+
+SENDING: sequence 1
+Data: cool place and they say it gets colder
+You're bu
+
 ACKNOWLEDGED: sequence 1: data packet accepted
 
+
+SENDING: sequence 0
+Data: udging by the hole in the satellite picture
+
+The
+
+TIMEOUT: data transfer not acknowledged
 
 SENDING: sequence 0
 Data: udging by the hole in the satellite picture
@@ -1437,23 +1462,8 @@ SENDING: sequence 0
 Data: ed to the rules and I hit the ground running
 Did
 
-NOT ACKNOWLEDGED: sequence 0: data packet corrupted
-
-
-SENDING: sequence 0
-Data: ed to the rules and I hit the ground running
-Did
-
 ACKNOWLEDGED: sequence 0: data packet accepted
 
-
-SENDING: sequence 1
-Data: s dumb
-
-So much to do so much to see
-So what's w
-
-TIMEOUT: data transfer not acknowledged
 
 SENDING: sequence 1
 Data: s dumb
@@ -1516,6 +1526,14 @@ Data: n get paid
 And all that glitters is gold
 Only sh
 
+NOT ACKNOWLEDGED: sequence 0: data packet corrupted
+
+
+SENDING: sequence 0
+Data: n get paid
+And all that glitters is gold
+Only sh
+
 ACKNOWLEDGED: sequence 0: data packet accepted
 
 
@@ -1554,8 +1572,7 @@ Data: d all use a little change
 
 Well, the years start
 
-NOT ACKNOWLEDGED: sequence 1: data packet corrupted
-
+TIMEOUT: data transfer not acknowledged
 
 SENDING: sequence 1
 Data: d all use a little change
@@ -1570,7 +1587,21 @@ Data: unning
 Didn't make sense not to live for fun
 You
 
+TIMEOUT: data transfer not acknowledged
+
+SENDING: sequence 0
+Data: unning
+Didn't make sense not to live for fun
+You
+
 ACKNOWLEDGED: sequence 0: data packet accepted
+
+
+SENDING: sequence 1
+Data: o what's wrong with taking the back streets
+You'
+
+NOT ACKNOWLEDGED: sequence 1: data packet corrupted
 
 
 SENDING: sequence 1
@@ -1586,7 +1617,39 @@ Data: us]
 And all that glitters is gold
 Only shootin'
 
+NOT ACKNOWLEDGED: sequence 0: data packet corrupted
+
+
+SENDING: sequence 0
+Data: us]
+
+And all that glitters is gold
+Only shootin'
+
+NOT ACKNOWLEDGED: sequence 0: data packet corrupted
+
+
+SENDING: sequence 0
+Data: us]
+
+And all that glitters is gold
+Only shootin'
+
 ACKNOWLEDGED: sequence 0: data packet accepted
+
+
+SENDING: sequence 1
+Data: in't the sharpest tool in the shed
+She was looki
+
+NOT ACKNOWLEDGED: sequence 1: data packet corrupted
+
+
+SENDING: sequence 1
+Data: in't the sharpest tool in the shed
+She was looki
+
+NOT ACKNOWLEDGED: sequence 1: data packet corrupted
 
 
 SENDING: sequence 1
@@ -1601,15 +1664,14 @@ Data: r forehead
 
 Well, the years start coming and the
 
-TIMEOUT: data transfer not acknowledged
-
-SENDING: sequence 0
-Data: r forehead
-
-Well, the years start coming and the
-
 ACKNOWLEDGED: sequence 0: data packet accepted
 
+
+SENDING: sequence 1
+Data: ake sense not to live for fun
+Your brain gets sm
+
+TIMEOUT: data transfer not acknowledged
 
 SENDING: sequence 1
 Data: ake sense not to live for fun
@@ -1628,13 +1690,6 @@ SENDING: sequence 0
 Data: with taking the back streets?
 You'll never know 
 
-NOT ACKNOWLEDGED: sequence 0: data packet corrupted
-
-
-SENDING: sequence 0
-Data: with taking the back streets?
-You'll never know 
-
 ACKNOWLEDGED: sequence 0: data packet accepted
 
 
@@ -1642,15 +1697,13 @@ SENDING: sequence 1
 Data: u're an All Star get your game on, go play
 Hey n
 
-NOT ACKNOWLEDGED: sequence 1: data packet corrupted
-
+TIMEOUT: data transfer not acknowledged
 
 SENDING: sequence 1
 Data: u're an All Star get your game on, go play
 Hey n
 
-NOT ACKNOWLEDGED: sequence 1: data packet corrupted
-
+TIMEOUT: data transfer not acknowledged
 
 SENDING: sequence 1
 Data: u're an All Star get your game on, go play
@@ -1673,14 +1726,14 @@ Data: ou get older
 But the media men beg to differ
 Jud
 
-TIMEOUT: data transfer not acknowledged
-
-SENDING: sequence 1
-Data: ou get older
-But the media men beg to differ
-Jud
-
 ACKNOWLEDGED: sequence 1: data packet accepted
+
+
+SENDING: sequence 0
+Data: tty thin
+The water's getting warm so you might a
+
+NOT ACKNOWLEDGED: sequence 0: data packet corrupted
 
 
 SENDING: sequence 0
@@ -1705,14 +1758,6 @@ Data: om this place
 I said yep what a concept
 I could 
 
-NOT ACKNOWLEDGED: sequence 0: data packet corrupted
-
-
-SENDING: sequence 0
-Data: om this place
-I said yep what a concept
-I could 
-
 ACKNOWLEDGED: sequence 0: data packet accepted
 
 
@@ -1727,20 +1772,15 @@ SENDING: sequence 0
 Data: or fun
 Your brain gets smart but your head gets 
 
-NOT ACKNOWLEDGED: sequence 0: data packet corrupted
-
-
-SENDING: sequence 0
-Data: or fun
-Your brain gets smart but your head gets 
-
-TIMEOUT: data transfer not acknowledged
-
-SENDING: sequence 0
-Data: or fun
-Your brain gets smart but your head gets 
-
 ACKNOWLEDGED: sequence 0: data packet accepted
+
+
+SENDING: sequence 1
+Data: reets
+You'll never know if you don't go
+You'll n
+
+NOT ACKNOWLEDGED: sequence 1: data packet corrupted
 
 
 SENDING: sequence 1
@@ -1761,6 +1801,11 @@ ACKNOWLEDGED: sequence 0: data packet accepted
 SENDING: sequence 1
 Data:  was looking kind of dumb with her finger and he
 
+TIMEOUT: data transfer not acknowledged
+
+SENDING: sequence 1
+Data:  was looking kind of dumb with her finger and he
+
 NOT ACKNOWLEDGED: sequence 1: data packet corrupted
 
 
@@ -1774,7 +1819,21 @@ SENDING: sequence 0
 Data: ng and they don't stop coming
 Fed to the rules a
 
+TIMEOUT: data transfer not acknowledged
+
+SENDING: sequence 0
+Data: ng and they don't stop coming
+Fed to the rules a
+
 ACKNOWLEDGED: sequence 0: data packet accepted
+
+
+SENDING: sequence 1
+Data: in gets smart but your head gets dumb
+
+So much t
+
+NOT ACKNOWLEDGED: sequence 1: data packet corrupted
 
 
 SENDING: sequence 1
@@ -1789,6 +1848,19 @@ SENDING: sequence 0
 Data: ever know if you don't go
 You'll never shine if 
 
+NOT ACKNOWLEDGED: sequence 0: data packet corrupted
+
+
+SENDING: sequence 0
+Data: ever know if you don't go
+You'll never shine if 
+
+TIMEOUT: data transfer not acknowledged
+
+SENDING: sequence 0
+Data: ever know if you don't go
+You'll never shine if 
+
 ACKNOWLEDGED: sequence 0: data packet accepted
 
 
@@ -1796,7 +1868,21 @@ SENDING: sequence 1
 Data: play
 Hey now you're a Rock Star get the show on 
 
+TIMEOUT: data transfer not acknowledged
+
+SENDING: sequence 1
+Data: play
+Hey now you're a Rock Star get the show on 
+
 ACKNOWLEDGED: sequence 1: data packet accepted
+
+
+SENDING: sequence 0
+Data: 
+It's a cool place and they say it gets colder
+Y
+
+NOT ACKNOWLEDGED: sequence 0: data packet corrupted
 
 
 SENDING: sequence 0
@@ -1848,6 +1934,12 @@ SENDING: sequence 1
 Data: coming
 Fed to the rules and I hit the ground run
 
+TIMEOUT: data transfer not acknowledged
+
+SENDING: sequence 1
+Data: coming
+Fed to the rules and I hit the ground run
+
 ACKNOWLEDGED: sequence 1: data packet accepted
 
 
@@ -1857,43 +1949,7 @@ Data: head gets dumb
 So much to do so much to see
 So 
 
-NOT ACKNOWLEDGED: sequence 0: data packet corrupted
-
-
-SENDING: sequence 0
-Data: head gets dumb
-
-So much to do so much to see
-So 
-
 ACKNOWLEDGED: sequence 0: data packet accepted
-
-
-SENDING: sequence 1
-Data: o
-You'll never shine if you don't glow.
-
-[Chorus
-
-NOT ACKNOWLEDGED: sequence 1: data packet corrupted
-
-
-SENDING: sequence 1
-Data: o
-You'll never shine if you don't glow.
-
-[Chorus
-
-NOT ACKNOWLEDGED: sequence 1: data packet corrupted
-
-
-SENDING: sequence 1
-Data: o
-You'll never shine if you don't glow.
-
-[Chorus
-
-NOT ACKNOWLEDGED: sequence 1: data packet corrupted
 
 
 SENDING: sequence 1
@@ -1916,13 +1972,8 @@ SENDING: sequence 1
 Data: ger and her thumb
 In the shape of an "L" on her 
 
-TIMEOUT: data transfer not acknowledged
+NOT ACKNOWLEDGED: sequence 1: data packet corrupted
 
-SENDING: sequence 1
-Data: ger and her thumb
-In the shape of an "L" on her 
-
-TIMEOUT: data transfer not acknowledged
 
 SENDING: sequence 1
 Data: ger and her thumb
@@ -1943,32 +1994,7 @@ Data:
 So much to do so much to see
 So what's wrong wi
 
-TIMEOUT: data transfer not acknowledged
-
-SENDING: sequence 1
-Data: 
-So much to do so much to see
-So what's wrong wi
-
 ACKNOWLEDGED: sequence 1: data packet accepted
-
-
-SENDING: sequence 0
-Data:  shine if you don't glow
-
-[Chorus:]
-Hey now you'
-
-NOT ACKNOWLEDGED: sequence 0: data packet corrupted
-
-
-SENDING: sequence 0
-Data:  shine if you don't glow
-
-[Chorus:]
-Hey now you'
-
-NOT ACKNOWLEDGED: sequence 0: data packet corrupted
 
 
 SENDING: sequence 0
@@ -1984,20 +2010,21 @@ SENDING: sequence 1
 Data: e show on get paid
 And all that glitters is gold
 
-TIMEOUT: data transfer not acknowledged
-
-SENDING: sequence 1
-Data: e show on get paid
-And all that glitters is gold
-
-NOT ACKNOWLEDGED: sequence 1: data packet corrupted
-
-
-SENDING: sequence 1
-Data: e show on get paid
-And all that glitters is gold
-
 ACKNOWLEDGED: sequence 1: data packet accepted
+
+
+SENDING: sequence 0
+Data: s colder
+You're bundled up now but wait 'til you
+
+NOT ACKNOWLEDGED: sequence 0: data packet corrupted
+
+
+SENDING: sequence 0
+Data: s colder
+You're bundled up now but wait 'til you
+
+NOT ACKNOWLEDGED: sequence 0: data packet corrupted
 
 
 SENDING: sequence 0
@@ -2019,6 +2046,20 @@ SENDING: sequence 0
 Data: re. How about yours?
 That's the way I like it an
 
+NOT ACKNOWLEDGED: sequence 0: data packet corrupted
+
+
+SENDING: sequence 0
+Data: re. How about yours?
+That's the way I like it an
+
+NOT ACKNOWLEDGED: sequence 0: data packet corrupted
+
+
+SENDING: sequence 0
+Data: re. How about yours?
+That's the way I like it an
+
 ACKNOWLEDGED: sequence 0: data packet accepted
 
 
@@ -2034,22 +2075,7 @@ Data:  we could all use a little change
 
 Well, the yea
 
-NOT ACKNOWLEDGED: sequence 0: data packet corrupted
-
-
-SENDING: sequence 0
-Data:  we could all use a little change
-
-Well, the yea
-
 ACKNOWLEDGED: sequence 0: data packet accepted
-
-
-SENDING: sequence 1
-Data: ground running
-Didn't make sense not to live for
-
-NOT ACKNOWLEDGED: sequence 1: data packet corrupted
 
 
 SENDING: sequence 1
@@ -2064,28 +2090,6 @@ Data: to see
 So what's wrong with taking the back stre
 
 ACKNOWLEDGED: sequence 0: data packet accepted
-
-
-SENDING: sequence 1
-Data: .
-
-[Chorus]
-
-And all that glitters is gold
-Only 
-
-NOT ACKNOWLEDGED: sequence 1: data packet corrupted
-
-
-SENDING: sequence 1
-Data: .
-
-[Chorus]
-
-And all that glitters is gold
-Only 
-
-NOT ACKNOWLEDGED: sequence 1: data packet corrupted
 
 
 SENDING: sequence 1
@@ -2112,6 +2116,13 @@ Data: L" on her forehead
 
 Well, the years start coming
 
+TIMEOUT: data transfer not acknowledged
+
+SENDING: sequence 1
+Data: L" on her forehead
+
+Well, the years start coming
+
 ACKNOWLEDGED: sequence 1: data packet accepted
 
 
@@ -2121,6 +2132,38 @@ Your brain
 
 ACKNOWLEDGED: sequence 0: data packet accepted
 
+
+SENDING: sequence 1
+Data: s wrong with taking the back streets?
+You'll nev
+
+NOT ACKNOWLEDGED: sequence 1: data packet corrupted
+
+
+SENDING: sequence 1
+Data: s wrong with taking the back streets?
+You'll nev
+
+TIMEOUT: data transfer not acknowledged
+
+SENDING: sequence 1
+Data: s wrong with taking the back streets?
+You'll nev
+
+NOT ACKNOWLEDGED: sequence 1: data packet corrupted
+
+
+SENDING: sequence 1
+Data: s wrong with taking the back streets?
+You'll nev
+
+TIMEOUT: data transfer not acknowledged
+
+SENDING: sequence 1
+Data: s wrong with taking the back streets?
+You'll nev
+
+TIMEOUT: data transfer not acknowledged
 
 SENDING: sequence 1
 Data: s wrong with taking the back streets?
@@ -2141,14 +2184,26 @@ Only shooting stars break the mold
 
 I
 
+NOT ACKNOWLEDGED: sequence 1: data packet corrupted
+
+
+SENDING: sequence 1
+Data: rs is gold
+Only shooting stars break the mold
+
+I
+
+NOT ACKNOWLEDGED: sequence 1: data packet corrupted
+
+
+SENDING: sequence 1
+Data: rs is gold
+Only shooting stars break the mold
+
+I
+
 ACKNOWLEDGED: sequence 1: data packet accepted
 
-
-SENDING: sequence 0
-Data: t 'til you get older
-But the media men beg to di
-
-TIMEOUT: data transfer not acknowledged
 
 SENDING: sequence 0
 Data: t 'til you get older
@@ -2179,25 +2234,16 @@ Data:  away from this place
 I said yep what a concept
 
 
+NOT ACKNOWLEDGED: sequence 1: data packet corrupted
+
+
+SENDING: sequence 1
+Data:  away from this place
+I said yep what a concept
+
+
 ACKNOWLEDGED: sequence 1: data packet accepted
 
-
-SENDING: sequence 0
-Data: l, the years start coming and they don't stop co
-
-NOT ACKNOWLEDGED: sequence 0: data packet corrupted
-
-
-SENDING: sequence 0
-Data: l, the years start coming and they don't stop co
-
-NOT ACKNOWLEDGED: sequence 0: data packet corrupted
-
-
-SENDING: sequence 0
-Data: l, the years start coming and they don't stop co
-
-TIMEOUT: data transfer not acknowledged
 
 SENDING: sequence 0
 Data: l, the years start coming and they don't stop co
@@ -2225,8 +2271,22 @@ Data:  back streets
 You'll never know if you don't go
 
 
+TIMEOUT: data transfer not acknowledged
+
+SENDING: sequence 0
+Data:  back streets
+You'll never know if you don't go
+
+
 NOT ACKNOWLEDGED: sequence 0: data packet corrupted
 
+
+SENDING: sequence 0
+Data:  back streets
+You'll never know if you don't go
+
+
+TIMEOUT: data transfer not acknowledged
 
 SENDING: sequence 0
 Data:  back streets
@@ -2248,6 +2308,12 @@ SENDING: sequence 0
 Data: shed
 She was looking kind of dumb with her finge
 
+TIMEOUT: data transfer not acknowledged
+
+SENDING: sequence 0
+Data: shed
+She was looking kind of dumb with her finge
+
 ACKNOWLEDGED: sequence 0: data packet accepted
 
 
@@ -2255,15 +2321,20 @@ SENDING: sequence 1
 Data: art coming and they don't stop coming
 Fed to the
 
+NOT ACKNOWLEDGED: sequence 1: data packet corrupted
+
+
+SENDING: sequence 1
+Data: art coming and they don't stop coming
+Fed to the
+
+TIMEOUT: data transfer not acknowledged
+
+SENDING: sequence 1
+Data: art coming and they don't stop coming
+Fed to the
+
 ACKNOWLEDGED: sequence 1: data packet accepted
-
-
-SENDING: sequence 0
-Data: Your brain gets smart but your head gets dumb
-
-S
-
-NOT ACKNOWLEDGED: sequence 0: data packet corrupted
 
 
 SENDING: sequence 0
@@ -2285,6 +2356,13 @@ SENDING: sequence 0
 Data:  on, go play
 Hey now you're a Rock Star get the 
 
+NOT ACKNOWLEDGED: sequence 0: data packet corrupted
+
+
+SENDING: sequence 0
+Data:  on, go play
+Hey now you're a Rock Star get the 
+
 ACKNOWLEDGED: sequence 0: data packet accepted
 
 
@@ -2293,14 +2371,6 @@ Data: he mold
 
 It's a cool place and they say it gets 
 
-NOT ACKNOWLEDGED: sequence 1: data packet corrupted
-
-
-SENDING: sequence 1
-Data: he mold
-
-It's a cool place and they say it gets 
-
 TIMEOUT: data transfer not acknowledged
 
 SENDING: sequence 1
@@ -2310,13 +2380,6 @@ It's a cool place and they say it gets
 
 NOT ACKNOWLEDGED: sequence 1: data packet corrupted
 
-
-SENDING: sequence 1
-Data: he mold
-
-It's a cool place and they say it gets 
-
-TIMEOUT: data transfer not acknowledged
 
 SENDING: sequence 1
 Data: he mold
@@ -2373,6 +2436,13 @@ SENDING: sequence 0
 Data: 't stop coming
 Fed to the rules and I hit the gr
 
+NOT ACKNOWLEDGED: sequence 0: data packet corrupted
+
+
+SENDING: sequence 0
+Data: 't stop coming
+Fed to the rules and I hit the gr
+
 ACKNOWLEDGED: sequence 0: data packet accepted
 
 
@@ -2382,6 +2452,14 @@ Data: ut your head gets dumb
 So much to do so much to
 
 ACKNOWLEDGED: sequence 1: data packet accepted
+
+
+SENDING: sequence 0
+Data:  don't go
+You'll never shine if you don't glow.
+
+
+NOT ACKNOWLEDGED: sequence 0: data packet corrupted
 
 
 SENDING: sequence 0
@@ -2403,20 +2481,14 @@ SENDING: sequence 0
 Data:  her finger and her thumb
 In the shape of an "L"
 
-NOT ACKNOWLEDGED: sequence 0: data packet corrupted
-
-
-SENDING: sequence 0
-Data:  her finger and her thumb
-In the shape of an "L"
-
-TIMEOUT: data transfer not acknowledged
-
-SENDING: sequence 0
-Data:  her finger and her thumb
-In the shape of an "L"
-
 ACKNOWLEDGED: sequence 0: data packet accepted
+
+
+SENDING: sequence 1
+Data: Fed to the rules and I hit the ground running
+Di
+
+NOT ACKNOWLEDGED: sequence 1: data packet corrupted
 
 
 SENDING: sequence 1
@@ -2441,16 +2513,14 @@ Data: ll never shine if you don't glow
 [Chorus:]
 Hey 
 
-NOT ACKNOWLEDGED: sequence 1: data packet corrupted
-
-
-SENDING: sequence 1
-Data: ll never shine if you don't glow
-
-[Chorus:]
-Hey 
-
 ACKNOWLEDGED: sequence 1: data packet accepted
+
+
+SENDING: sequence 0
+Data: r get the show on get paid
+And all that glitters
+
+NOT ACKNOWLEDGED: sequence 0: data packet corrupted
 
 
 SENDING: sequence 0
@@ -2488,12 +2558,6 @@ That's the way I li
 
 ACKNOWLEDGED: sequence 1: data packet accepted
 
-
-SENDING: sequence 0
-Data: spare some change for gas
-I need to get myself a
-
-TIMEOUT: data transfer not acknowledged
 
 SENDING: sequence 0
 Data: spare some change for gas
@@ -2539,14 +2603,18 @@ Data: n't glow.
 
 And all that glitters is go
 
+NOT ACKNOWLEDGED: sequence 0: data packet corrupted
+
+
+SENDING: sequence 0
+Data: n't glow.
+
+[Chorus]
+
+And all that glitters is go
+
 ACKNOWLEDGED: sequence 0: data packet accepted
 
-
-SENDING: sequence 1
-Data: onna roll me
-I ain't the sharpest tool in the sh
-
-TIMEOUT: data transfer not acknowledged
 
 SENDING: sequence 1
 Data: onna roll me
@@ -2576,6 +2644,14 @@ Data: running
 Didn't make sense not to live for fun
 Yo
 
+NOT ACKNOWLEDGED: sequence 1: data packet corrupted
+
+
+SENDING: sequence 1
+Data: running
+Didn't make sense not to live for fun
+Yo
+
 ACKNOWLEDGED: sequence 1: data packet accepted
 
 
@@ -2584,6 +2660,13 @@ Data: So what's wrong with taking the back streets?
 Yo
 
 ACKNOWLEDGED: sequence 0: data packet accepted
+
+
+SENDING: sequence 1
+Data: rus:]
+Hey now you're an All Star get your game o
+
+NOT ACKNOWLEDGED: sequence 1: data packet corrupted
 
 
 SENDING: sequence 1
@@ -2633,13 +2716,6 @@ SENDING: sequence 0
 Data: t myself away from this place
 I said yep what a 
 
-NOT ACKNOWLEDGED: sequence 0: data packet corrupted
-
-
-SENDING: sequence 0
-Data: t myself away from this place
-I said yep what a 
-
 ACKNOWLEDGED: sequence 0: data packet accepted
 
 
@@ -2655,21 +2731,7 @@ SENDING: sequence 0
 Data: se not to live for fun
 Your brain gets smart but
 
-NOT ACKNOWLEDGED: sequence 0: data packet corrupted
-
-
-SENDING: sequence 0
-Data: se not to live for fun
-Your brain gets smart but
-
 ACKNOWLEDGED: sequence 0: data packet accepted
-
-
-SENDING: sequence 1
-Data: king the back streets
-You'll never know if you d
-
-NOT ACKNOWLEDGED: sequence 1: data packet corrupted
 
 
 SENDING: sequence 1
@@ -2691,8 +2753,7 @@ SENDING: sequence 1
 Data:  in the shed
 She was looking kind of dumb with h
 
-NOT ACKNOWLEDGED: sequence 1: data packet corrupted
-
+TIMEOUT: data transfer not acknowledged
 
 SENDING: sequence 1
 Data:  in the shed
@@ -2705,14 +2766,14 @@ SENDING: sequence 0
 Data: years start coming and they don't stop coming
 Fe
 
-NOT ACKNOWLEDGED: sequence 0: data packet corrupted
-
-
-SENDING: sequence 0
-Data: years start coming and they don't stop coming
-Fe
-
 ACKNOWLEDGED: sequence 0: data packet accepted
+
+
+SENDING: sequence 1
+Data: for fun
+Your brain gets smart but your head gets
+
+NOT ACKNOWLEDGED: sequence 1: data packet corrupted
 
 
 SENDING: sequence 1
@@ -2727,8 +2788,34 @@ Data: treets?
 You'll never know if you don't go
 You'll
 
+TIMEOUT: data transfer not acknowledged
+
+SENDING: sequence 0
+Data: treets?
+You'll never know if you don't go
+You'll
+
 ACKNOWLEDGED: sequence 0: data packet accepted
 
+
+SENDING: sequence 1
+Data: our game on, go play
+Hey now you're a Rock Star 
+
+NOT ACKNOWLEDGED: sequence 1: data packet corrupted
+
+
+SENDING: sequence 1
+Data: our game on, go play
+Hey now you're a Rock Star 
+
+TIMEOUT: data transfer not acknowledged
+
+SENDING: sequence 1
+Data: our game on, go play
+Hey now you're a Rock Star 
+
+TIMEOUT: data transfer not acknowledged
 
 SENDING: sequence 1
 Data: our game on, go play
@@ -2780,14 +2867,15 @@ SENDING: sequence 1
 Data: they don't stop coming
 Fed to the rules and I hi
 
-TIMEOUT: data transfer not acknowledged
-
-SENDING: sequence 1
-Data: they don't stop coming
-Fed to the rules and I hi
-
 ACKNOWLEDGED: sequence 1: data packet accepted
 
+
+SENDING: sequence 0
+Data:  smart but your head gets dumb
+
+So much to do so
+
+TIMEOUT: data transfer not acknowledged
 
 SENDING: sequence 0
 Data:  smart but your head gets dumb
@@ -2815,33 +2903,8 @@ SENDING: sequence 0
 Data:  the mold
 Somebody once told me the world is gon
 
-TIMEOUT: data transfer not acknowledged
-
-SENDING: sequence 0
-Data:  the mold
-Somebody once told me the world is gon
-
 ACKNOWLEDGED: sequence 0: data packet accepted
 
-
-SENDING: sequence 1
-Data: umb with her finger and her thumb
-In the shape o
-
-NOT ACKNOWLEDGED: sequence 1: data packet corrupted
-
-
-SENDING: sequence 1
-Data: umb with her finger and her thumb
-In the shape o
-
-TIMEOUT: data transfer not acknowledged
-
-SENDING: sequence 1
-Data: umb with her finger and her thumb
-In the shape o
-
-TIMEOUT: data transfer not acknowledged
 
 SENDING: sequence 1
 Data: umb with her finger and her thumb
@@ -2872,6 +2935,15 @@ You'll never shine if you don't glow
 
 [Choru
 
+NOT ACKNOWLEDGED: sequence 0: data packet corrupted
+
+
+SENDING: sequence 0
+Data:  go
+You'll never shine if you don't glow
+
+[Choru
+
 ACKNOWLEDGED: sequence 0: data packet accepted
 
 
@@ -2894,7 +2966,22 @@ Data: hole in the satellite picture
 
 The ice we skate 
 
+NOT ACKNOWLEDGED: sequence 1: data packet corrupted
+
+
+SENDING: sequence 1
+Data: hole in the satellite picture
+
+The ice we skate 
+
 ACKNOWLEDGED: sequence 1: data packet accepted
+
+
+SENDING: sequence 0
+Data: My world's on fire. How about yours?
+That's the 
+
+NOT ACKNOWLEDGED: sequence 0: data packet corrupted
 
 
 SENDING: sequence 0
@@ -2907,14 +2994,14 @@ SENDING: sequence 0
 Data: My world's on fire. How about yours?
 That's the 
 
+NOT ACKNOWLEDGED: sequence 0: data packet corrupted
+
+
+SENDING: sequence 0
+Data: My world's on fire. How about yours?
+That's the 
+
 ACKNOWLEDGED: sequence 0: data packet accepted
-
-
-SENDING: sequence 1
-Data: could I spare some change for gas
-I need to get 
-
-NOT ACKNOWLEDGED: sequence 1: data packet corrupted
 
 
 SENDING: sequence 1
@@ -2995,33 +3082,13 @@ SENDING: sequence 1
 Data:  to see
 So what's wrong with taking the back str
 
-ACKNOWLEDGED: sequence 1: data packet accepted
-
-
-SENDING: sequence 0
-Data: ow
-
-[Chorus:]
-Hey now you're an All Star get you
-
-NOT ACKNOWLEDGED: sequence 0: data packet corrupted
-
-
-SENDING: sequence 0
-Data: ow
-
-[Chorus:]
-Hey now you're an All Star get you
-
 TIMEOUT: data transfer not acknowledged
 
-SENDING: sequence 0
-Data: ow
+SENDING: sequence 1
+Data:  to see
+So what's wrong with taking the back str
 
-[Chorus:]
-Hey now you're an All Star get you
-
-NOT ACKNOWLEDGED: sequence 0: data packet corrupted
+ACKNOWLEDGED: sequence 1: data packet accepted
 
 
 SENDING: sequence 0
@@ -3057,6 +3124,17 @@ ACKNOWLEDGED: sequence 1: data packet accepted
 SENDING: sequence 0
 Data: hat's the way I like it and I'll never get bored
 
+NOT ACKNOWLEDGED: sequence 0: data packet corrupted
+
+
+SENDING: sequence 0
+Data: hat's the way I like it and I'll never get bored
+
+TIMEOUT: data transfer not acknowledged
+
+SENDING: sequence 0
+Data: hat's the way I like it and I'll never get bored
+
 ACKNOWLEDGED: sequence 0: data packet accepted
 
 
@@ -3065,14 +3143,6 @@ Data: ed to get myself away from this place
 I said yep
 
 ACKNOWLEDGED: sequence 1: data packet accepted
-
-
-SENDING: sequence 0
-Data: ttle change
-
-Well, the years start coming and th
-
-NOT ACKNOWLEDGED: sequence 0: data packet corrupted
 
 
 SENDING: sequence 0
@@ -3101,21 +3171,12 @@ SENDING: sequence 1
 Data: hat glitters is gold
 Only shootin' stars break t
 
-NOT ACKNOWLEDGED: sequence 1: data packet corrupted
-
-
-SENDING: sequence 1
-Data: hat glitters is gold
-Only shootin' stars break t
-
-TIMEOUT: data transfer not acknowledged
-
-SENDING: sequence 1
-Data: hat glitters is gold
-Only shootin' stars break t
-
 ACKNOWLEDGED: sequence 1: data packet accepted
 
+
+SENDING: Close file transfer packet
+
+TIMEOUT: data transfer not acknowledged
 
 SENDING: Close file transfer packet
 
@@ -3125,4 +3186,4 @@ FINISHED: File completely sent: TestFile.txt
 
 bash-4.1$ exit
 
-Script done on Sun 23 Mar 2014 08:36:00 PM CDT
+Script done on Sun 23 Mar 2014 08:46:08 PM CDT
