@@ -170,7 +170,7 @@ int main(int argc, char** argv)
 	                        send_ack = true;
                         }
                         else {
-                            std::cout << "RECEIVED: " << (int)cur_seq << ": damaged packet" << std::endl << std::endl;
+                            std::cout << "RECEIVED: sequence " << (int)cur_seq << ": damaged packet" << std::endl << std::endl;
                             send_nack = true;
                         }
                     }
