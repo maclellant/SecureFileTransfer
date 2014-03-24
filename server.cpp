@@ -16,6 +16,7 @@
 #include <stdint.h>
 #include <iostream>
 #include <errno.h>
+#include <numeric>
 
 #define PACKET_SIZE 128
 #define SERVER_PORT 10050
@@ -28,6 +29,9 @@
 #define PUT 3
 #define DEL 4
 #define TRN 5
+
+/* Prototypes */
+int checksum(char *, size_t);
 
 int main(int argc, char** argv)
 {
@@ -101,7 +105,7 @@ int main(int argc, char** argv)
         //Getting packet sections
         uint8_t * packet_type = (uint8_t*) (buffer + 0);
         uint8_t * seq_num = (uint8_t*) (buffer + 1);
-        uint16_t * checksum = (uint16_t*) (buffer + 2);
+        uint16_t * chk = (uint16_t*) (buffer + 2);
         uint16_t * data_size = (uint16_t*) (buffer + 4);
         char* data = (char*) (buffer + 6);
         cur_seq = (int) *seq_num;
@@ -141,28 +145,32 @@ int main(int argc, char** argv)
             break;
             case TRN:
                 if(!wait_put) {
-                    if (exp_seq == cur_seq) {
-                        if(*data_size > 0) {
-                            fwrite(data, 1, *data_size, outfile);
-
-                            std::cout << "RECEIVED: sequence " << (int)cur_seq << std::endl;
-                            std::cout << "Data: " << output << std::endl << std::endl;
-
-                            //Updating the expected sequence number.
-                            exp_seq = (exp_seq + 1) % 2;
+                    if(exp_seq == cur_seq) {
+                        int recv_chk = checksum(data, *data_size);
+                        if (*chk == recv_chk) {
+                            if(*data_size > 0) {
+                                fwrite(data, 1, *data_size, outfile);
+                                std::cout << "RECEIVED: sequence " << (int)cur_seq << std::endl;
+                                std::cout << "Data: " << output << std::endl << std::endl;
+                                //Updating the expected sequence number.
+                                exp_seq = (exp_seq + 1) % 2;
+                            }
+                            else {
+                                fclose(outfile);
+                                wait_put = true;
+                                std::cout << "RECEIVED: close packet for file transfer: closing transfer" << std::endl << std::endl;
+                                exp_seq = 0;
+                            }
+	                        send_ack = true;
                         }
                         else {
-                            fclose(outfile);
-                            wait_put = true;
-
-                            std::cout << "RECEIVED: close packet for file transfer: closing transfer" << std::endl << std::endl;
-
-                            exp_seq = 0;
+                            std::cout << "RECEIVED: " << (int)cur_seq << ": damaged packet" << std::endl << std::endl;
+                            send_ack = false;
                         }
-                        send_ack = true;
                     }
                     else {
                         std::cout << "RECEIVED: sequence " << (int)cur_seq << ": incorrect sequence number" << std::endl << std::endl;
+                        send_ack = false;
                     }
                 }
                 else {
@@ -174,6 +182,7 @@ int main(int argc, char** argv)
                 std::cout << "UNKNOWN PACKET TYPE: Packet discarded" << std::endl << std::endl;
             break;
         }
+
 
 		if(send_ack) {
 			bzero(buffer, 128);
@@ -195,4 +204,8 @@ int main(int argc, char** argv)
  
     close(sockfd);
     exit(EXIT_SUCCESS);
+}
+
+int checksum(char *msg, size_t len) {
+	return int(std::accumulate(msg, msg + len, (unsigned char) 0));
 }
