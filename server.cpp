@@ -79,6 +79,8 @@ int main(int argc, char** argv)
 	bool wait_put = true;
 	FILE *outfile;
 	bool send_ack = false;
+    bool send_nack = false;
+    bool reset_server = false;
 	int exp_seq = 0;
     int cur_seq = 0;
     
@@ -89,6 +91,7 @@ int main(int argc, char** argv)
             if (errno == EAGAIN || errno == EWOULDBLOCK) {
                 if (!wait_put) {
                     std::cout << "TIMEOUT: Cancelling current client transfer" << std::endl << std::endl;
+                    std::cout << "Waiting for client connection......" << std::endl << std::endl;
                     wait_put = true;
                 }
                 continue; /* repeat the while loop */
@@ -101,6 +104,8 @@ int main(int argc, char** argv)
         }
 
         send_ack = false;
+        send_nack = false;
+        reset_server = false;
 
         //Getting packet sections
         uint8_t * packet_type = (uint8_t*) (buffer + 0);
@@ -160,12 +165,13 @@ int main(int argc, char** argv)
                                 wait_put = true;
                                 std::cout << "RECEIVED: close packet for file transfer: closing transfer" << std::endl << std::endl;
                                 exp_seq = 0;
+                                reset_server = true;
                             }
 	                        send_ack = true;
                         }
                         else {
                             std::cout << "RECEIVED: " << (int)cur_seq << ": damaged packet" << std::endl << std::endl;
-                            send_ack = false;
+                            send_nack = true;
                         }
                     }
                     else {
@@ -200,6 +206,26 @@ int main(int argc, char** argv)
 				exit(EXIT_FAILURE);
 			}
 		}
+        else if (send_nack) {
+            bzero(buffer, 128);
+
+            *packet_type = NAK;
+            *seq_num = cur_seq;
+            *data_size = 0;
+
+            std::cout << "SENDING NAK: sequence " << cur_seq << std::endl << std::endl << std::endl;
+        
+            if (sendto(sockfd, buffer, PACKET_SIZE, 0, (struct sockaddr*) &client_addr, slen) == -1)
+            {
+                perror("Error: could not send acknowledge to client\n");
+                close(sockfd);
+                exit(EXIT_FAILURE);
+            }
+        }
+
+        if (reset_server) {
+            std::cout << "Waiting for client connection......" << std::endl << std::endl;
+        }
     }
  
     close(sockfd);

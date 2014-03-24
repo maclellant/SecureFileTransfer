@@ -312,7 +312,7 @@ void PUT_func(char *filename, int damaged, int lost, int sockfd, struct sockaddr
 					std::cout << "ACKNOWLEDGED: sequence " << (int)sequence << ": data packet accepted" << std::endl << std::endl << std::endl;
 					acked = true;
 				} else {
-					std::cout << "NOT ACKNOWLEDGED: sequence " << (int)sequence << ": data packet corrupted" << std::endl << std::endl;
+					std::cout << "NOT ACKNOWLEDGED: sequence " << (int)sequence << ": data packet corrupted" << std::endl << std::endl << std::endl;
 				}
 			}
 		}
